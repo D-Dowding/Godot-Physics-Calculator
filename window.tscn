@@ -1,0 +1,1065 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvl66ktqi6rsr"]
+
+[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://VectorMath.gd" id="1_mvsta"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hjewq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvsta"]
+font_size = 22
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_mvsta"]
+spacing_glyph = -5
+
+[sub_resource type="LabelSettings" id="LabelSettings_hjewq"]
+font = SubResource("FontVariation_mvsta")
+font_size = 24
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Window" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_hjewq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="2DVectorMath" type="Control" parent="MarginContainer" node_paths=PackedStringArray("AX_input_field", "AY_input_field", "BX_input_field", "BY_input_field", "S_input_field", "AX_plus_BX_button", "AY_plus_BY_button", "AX_minus_BX_button", "AY_minus_BY_button", "BX_minus_AX_button", "BY_minus_AY_button", "A_magnitude_button", "B_magnitude_button", "A_dot_B_button", "A_angle_degrees", "A_angle_radians", "B_angle_degrees", "B_angle_radians", "A_B_radian_difference_button", "A_B_degree_difference_button", "AX_normalized_button", "AY_normalized_button", "BX_normalized_button", "BY_normalized_button", "AX_muliplied_by_S_button", "AY_muliplied_by_S_button", "BX_muliplied_by_S_button", "BY_muliplied_by_S_button", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer")]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource("1_mvsta")
+AX_input_field = NodePath("Math/UserInputContainer/A_VectorContainer/InputField")
+AY_input_field = NodePath("Math/UserInputContainer/A_VectorContainer/InputField2")
+BX_input_field = NodePath("Math/UserInputContainer/B_VectorContainer/InputField")
+BY_input_field = NodePath("Math/UserInputContainer/B_VectorContainer/InputField2")
+S_input_field = NodePath("Math/UserInputContainer/S_Container/InputField")
+AX_plus_BX_button = NodePath("Math/Calculations/A+B/HSplitContainer/ButtonX")
+AY_plus_BY_button = NodePath("Math/Calculations/A+B/HSplitContainer/ButtonY")
+AX_minus_BX_button = NodePath("Math/Calculations/A-B/HSplitContainer/ButtonX")
+AY_minus_BY_button = NodePath("Math/Calculations/A-B/HSplitContainer/ButtonY")
+BX_minus_AX_button = NodePath("Math/Calculations/B-A/HSplitContainer/ButtonX")
+BY_minus_AY_button = NodePath("Math/Calculations/B-A/HSplitContainer/ButtonY")
+A_magnitude_button = NodePath("Math/Calculations/||A||/Button")
+B_magnitude_button = NodePath("Math/Calculations/||B||/Button")
+A_dot_B_button = NodePath("Math/Calculations/A∘B/Button")
+A_angle_degrees = NodePath("Math/Calculations/A∠Degrees/Button")
+A_angle_radians = NodePath("Math/Calculations/A∠Radians/Button")
+B_angle_degrees = NodePath("Math/Calculations/B∠Degrees/Button")
+B_angle_radians = NodePath("Math/Calculations/B∠Radians/Button")
+A_B_radian_difference_button = NodePath("Math/Calculations/θRadians/Button")
+A_B_degree_difference_button = NodePath("Math/Calculations/θDegrees/Button")
+AX_normalized_button = NodePath("Math/Calculations/|A|/HSplitContainer/ButtonX")
+AY_normalized_button = NodePath("Math/Calculations/|A|/HSplitContainer/ButtonY")
+BX_normalized_button = NodePath("Math/Calculations/|B|/HSplitContainer/ButtonX")
+BY_normalized_button = NodePath("Math/Calculations/|B|/HSplitContainer/ButtonY")
+AX_muliplied_by_S_button = NodePath("Math/Calculations/sA/HSplitContainer/ButtonX")
+AY_muliplied_by_S_button = NodePath("Math/Calculations/sA/HSplitContainer/ButtonY")
+BX_muliplied_by_S_button = NodePath("Math/Calculations/sB/HSplitContainer/ButtonX")
+BY_muliplied_by_S_button = NodePath("Math/Calculations/sB/HSplitContainer/ButtonY")
+reset_button = NodePath("ToolButtons/Control2/Reset")
+calculate_button = NodePath("ToolButtons/Control/Calculate")
+extras_button = NodePath("ToolButtons/Control3/Extras")
+splash_text = NodePath("SplashText")
+splash_text_timer = NodePath("SplashText/SplashTextTimer")
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/2DVectorMath"]
+layout_mode = 1
+offset_right = 1112.0
+offset_bottom = 339.0
+color = Color(0, 0, 0, 0.36400002)
+
+[node name="Border" type="ReferenceRect" parent="MarginContainer/2DVectorMath"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1112.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.776426, 0.759207, 0.832554, 1)
+border_width = 3.0
+editor_only = false
+
+[node name="Label" type="Label" parent="MarginContainer/2DVectorMath"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -15.0
+offset_right = 139.0
+offset_bottom = 16.0
+text = "2D Vectors"
+label_settings = SubResource("LabelSettings_mvsta")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/2DVectorMath/Label"]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Math" type="FlowContainer" parent="MarginContainer/2DVectorMath"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 916.0
+offset_bottom = 307.0
+theme_override_constants/v_separation = -41
+vertical = true
+
+[node name="UserInputContainer" type="HBoxContainer" parent="MarginContainer/2DVectorMath/Math"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 334
+alignment = 1
+
+[node name="A_VectorContainer" type="Control" parent="MarginContainer/2DVectorMath/Math/UserInputContainer"]
+layout_mode = 2
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/A_VectorContainer"]
+layout_mode = 1
+offset_right = 39.5625
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A=["
+horizontal_alignment = 2
+
+[node name="InputField" type="LineEdit" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/A_VectorContainer"]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 3.0
+offset_right = 169.4375
+offset_bottom = 34.0
+size_flags_horizontal = 3
+placeholder_text = "0"
+alignment = 1
+
+[node name="InputField2" type="LineEdit" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/A_VectorContainer"]
+layout_mode = 1
+offset_left = 181.0
+offset_top = 3.0
+offset_right = 306.4375
+offset_bottom = 34.0
+size_flags_horizontal = 3
+placeholder_text = "0"
+alignment = 1
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/A_VectorContainer"]
+layout_mode = 1
+offset_left = 313.0
+offset_right = 326.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+
+[node name="B_VectorContainer" type="Control" parent="MarginContainer/2DVectorMath/Math/UserInputContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/B_VectorContainer"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 35.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B=["
+horizontal_alignment = 2
+
+[node name="InputField" type="LineEdit" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/B_VectorContainer"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 5.0
+offset_right = 172.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+placeholder_text = "0"
+alignment = 1
+
+[node name="InputField2" type="LineEdit" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/B_VectorContainer"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 5.0
+offset_right = 306.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+placeholder_text = "0"
+alignment = 1
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/B_VectorContainer"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 1.0
+offset_right = 338.0
+offset_bottom = 35.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+
+[node name="S_Container" type="Control" parent="MarginContainer/2DVectorMath/Math/UserInputContainer"]
+layout_mode = 2
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/S_Container"]
+layout_mode = 0
+offset_right = 38.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+tooltip_text = "Scalar
+A*s, B*s
+A static value that is multiplied by each component of the A vector and the B vector."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "s=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InputField" type="LineEdit" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/S_Container"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 5.0
+offset_right = 167.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "1"
+alignment = 1
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/UserInputContainer/S_Container"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 1.0
+offset_right = 189.0
+offset_bottom = 37.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="Calculations" type="GridContainer" parent="MarginContainer/2DVectorMath/Math"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 299
+theme_override_constants/v_separation = 34
+columns = 3
+
+[node name="A+B" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A+B"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A+B=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/A+B"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A+B/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A+B/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A+B"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="A-B" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A-B"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A-B=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/A-B"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A-B/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A-B/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A-B"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="B-A" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/B-A"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B-A=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/B-A"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/B-A/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/B-A/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/B-A"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="A∘B" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A∘B"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Dot Product 
+A∘B = (Ax * Bx) + (Ay * By)
+Used to find the difference between two angles."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A∘B=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A∘B"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 156.0
+offset_bottom = 31.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A∘B"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 169.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="||A||" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/||A||"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Magnitude
+A² + B² = C²
+The length of the vector. This is also the hypotenuse of the vector triange."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "||  A ||    =        ["
+label_settings = SubResource("LabelSettings_hjewq")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/||A||"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 6.0
+offset_right = 164.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/||A||"]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 176.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="||B||" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/||B||"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Magnitude
+A² + B² = C²
+The length of the vector. This is also the hypotenuse of the vector triange."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "||  B ||    =        ["
+label_settings = SubResource("LabelSettings_hjewq")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/||B||"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 6.0
+offset_right = 165.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/||B||"]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 176.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="θDegrees" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/θDegrees"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle Difference (Degrees)
+degrees = radians * 180/PI
+The degree representation of the angle between A vector and B vector."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "θ=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/θDegrees"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 6.0
+offset_right = 125.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/θDegrees"]
+layout_mode = 0
+offset_left = 130.0
+offset_right = 236.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] degrees"
+vertical_alignment = 1
+
+[node name="θRadians" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/θRadians"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle Difference (Radians)
+radians = acos((A ∘ B)  /  (||A|| * ||B||))
+radians = degrees * PI/180
+The radian representation of the angle between A vector and B vector."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "θ=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/θRadians"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 6.0
+offset_right = 127.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/θRadians"]
+layout_mode = 0
+offset_left = 133.0
+offset_right = 141.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] radians"
+vertical_alignment = 1
+
+[node name="A∠Radians" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A∠Radians"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Radians)
+The angle of the vector in radians."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A∠Radians"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A∠Radians"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 255.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] radians"
+vertical_alignment = 1
+
+[node name="B∠Radians" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/B∠Radians"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Radians)
+The angle of the vector in radians."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/B∠Radians"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/B∠Radians"]
+layout_mode = 0
+offset_left = 148.0
+offset_right = 249.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] radians"
+vertical_alignment = 1
+
+[node name="A∠Degrees" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A∠Degrees"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Degrees)
+The angle of the vector in degrees."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/A∠Degrees"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/A∠Degrees"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 255.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] degrees"
+vertical_alignment = 1
+
+[node name="B∠Degrees" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/B∠Degrees"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Degrees)
+The angle of the vector in degrees."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/B∠Degrees"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 33.0
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/B∠Degrees"]
+layout_mode = 0
+offset_left = 148.0
+offset_right = 249.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] degrees"
+vertical_alignment = 1
+
+[node name="sA" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/sA"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Multiplied Vector
+[x, y] * Scalar
+The result of multiplying the vector by the scalar."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "sA=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/sA"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/sA/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/sA/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/sA"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="sB" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/sB"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Multiplied Vector
+[x, y] * Scalar
+The result of multiplying the vector by the scalar."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "sB=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/sB"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/sB/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/sB/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/sB"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="|A|" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/|A|"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Normalized Vector
+[x, y] / Length of Vector
+The vector in normalized form. This is the direction the vector is pointing without the magnitude."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|A|=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/|A|"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/|A|/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/|A|/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/|A|"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="|B|" type="Control" parent="MarginContainer/2DVectorMath/Math/Calculations"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LabelStart" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/|B|"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Normalized Vector
+[x, y] / Length of Vector
+The vector in normalized form. This is the direction the vector is pointing without the magnitude."
+mouse_filter = 0
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|B|=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/2DVectorMath/Math/Calculations/|B|"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+split_offset = 85
+
+[node name="ButtonX" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/|B|/HSplitContainer"]
+layout_mode = 2
+
+[node name="ButtonY" type="Button" parent="MarginContainer/2DVectorMath/Math/Calculations/|B|/HSplitContainer"]
+layout_mode = 2
+
+[node name="LabelEnd" type="Label" parent="MarginContainer/2DVectorMath/Math/Calculations/|B|"]
+layout_mode = 0
+offset_left = 257.0
+offset_right = 265.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="ToolButtons" type="VBoxContainer" parent="MarginContainer/2DVectorMath"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 15.0
+offset_right = 1098.0
+offset_bottom = 221.0
+theme_override_constants/separation = 34
+
+[node name="Control" type="Control" parent="MarginContainer/2DVectorMath/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Calculate" type="Button" parent="MarginContainer/2DVectorMath/ToolButtons/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Calculate"
+
+[node name="Control2" type="Control" parent="MarginContainer/2DVectorMath/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Reset" type="Button" parent="MarginContainer/2DVectorMath/ToolButtons/Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Reset
+"
+
+[node name="Control3" type="Control" parent="MarginContainer/2DVectorMath/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Extras" type="CheckButton" parent="MarginContainer/2DVectorMath/ToolButtons/Control3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+tooltip_text = "Adds extra calculations not included in the original physics calculator.
+WARNING: It's recommended you keep this off during tests, as the extra options are experimental and prone to change."
+mouse_default_cursor_shape = 16
+text = "Extras"
+
+[node name="SplashText" type="RichTextLabel" parent="MarginContainer/2DVectorMath"]
+clip_contents = false
+layout_mode = 1
+offset_left = 12.0
+offset_top = 286.0
+offset_right = 631.0
+offset_bottom = 327.0
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "This is splash text"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="SplashTextTimer" type="Timer" parent="MarginContainer/2DVectorMath/SplashText"]
+wait_time = 4.0
+one_shot = true
