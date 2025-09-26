@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4gt23jj7fxtg"]
+
+[ext_resource type="Script" uid="uid://vdsy4q4cnlhd" path="res://Scripts/PanelBar.gd" id="1_besty"]
+[ext_resource type="Texture2D" uid="uid://dx6nrpm0sa8fu" path="res://Assets/Textures/Exit Icons/ExitUnpressedIcon.png" id="2_1wx40"]
+[ext_resource type="Texture2D" uid="uid://dwlcrnar05jin" path="res://Assets/Textures/Exit Icons/ExitPressedIcon.png" id="3_t16nl"]
+[ext_resource type="Texture2D" uid="uid://bhqocgm6rnt4p" path="res://Assets/Textures/Exit Icons/ExitHoverIcon.png" id="4_h2iks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyc05"]
+bg_color = Color(0.67, 0.67, 0.67, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvsta"]
+font_size = 22
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PanelBar" type="Panel"]
+offset_right = 1112.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yyc05")
+script = ExtResource("1_besty")
+
+[node name="PanelTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -15.0
+offset_right = 162.0
+offset_bottom = 16.0
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_mvsta")
+vertical_alignment = 1
+
+[node name="PanelExitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_bottom = 39.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_1wx40")
+texture_pressed = ExtResource("3_t16nl")
+texture_hover = ExtResource("4_h2iks")
+ignore_texture_size = true
+stretch_mode = 0

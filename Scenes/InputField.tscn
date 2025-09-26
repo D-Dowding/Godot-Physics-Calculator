@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxk340b6rgmph"]
 
-[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://InputField.gd" id="1_kdo15"]
+[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="1_roqf0"]
 
 [node name="InputField" type="LineEdit" groups=["InputField"]]
 anchors_preset = 15
@@ -8,4 +8,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kdo15")
+script = ExtResource("1_roqf0")

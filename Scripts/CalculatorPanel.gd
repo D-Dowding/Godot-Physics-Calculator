@@ -12,6 +12,9 @@ class_name CalculatorPanel
 @export var splash_text : RichTextLabel
 @export var splash_text_timer : Timer
 
+## This needs to be here because Control changes based on window size, whereas rect does not
+@onready var rect = $Rect
+
 var errored_input_fields : Array[InputField]
 var input_fields: Dictionary[String, InputField]
 var buttons : Array[CalculationButton]

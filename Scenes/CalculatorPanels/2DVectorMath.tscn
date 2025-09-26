@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c27exms4ti8nb"]
+[gd_scene load_steps=8 format=3 uid="uid://c27exms4ti8nb"]
 
-[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://VectorMath.gd" id="1_ab8oc"]
-[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://InputField.gd" id="2_r3pd2"]
-[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://CalculationButton.gd" id="3_o6np1"]
+[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_ab8oc"]
+[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_r3pd2"]
+[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_o6np1"]
+[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_o6np1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_mvsta"]
-font_size = 22
-outline_size = 7
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
+bg_color = Color(0.31, 0.31, 0.31, 0.75686276)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="FontVariation" id="FontVariation_mvsta"]
 spacing_glyph = -5
@@ -18,58 +21,31 @@ font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="2DVectorMath" type="Control" node_paths=PackedStringArray("extra_calculations", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+[node name="2DVectorMath" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.96500003
+anchor_bottom = 0.523
+offset_right = 0.3199463
+offset_bottom = 6.0960083
 size_flags_horizontal = 3
 size_flags_vertical = 2
 script = ExtResource("1_ab8oc")
-extra_calculations = [NodePath("Math/Calculations/A∠Radians"), NodePath("Math/Calculations/B∠Radians"), NodePath("Math/Calculations/A∠Degrees"), NodePath("Math/Calculations/B∠Degrees")]
 reset_button = NodePath("ToolButtons/Control2/Reset")
 calculate_button = NodePath("ToolButtons/Control/Calculate")
 extras_button = NodePath("ToolButtons/Control3/Extras")
 splash_text = NodePath("SplashText")
 splash_text_timer = NodePath("SplashText/SplashTextTimer")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 1112.0
-offset_bottom = 339.0
-grow_horizontal = 2
-color = Color(0, 0, 0, 0.36400002)
-
-[node name="Border" type="ReferenceRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 1112.0
-offset_bottom = 339.0
-grow_horizontal = 2
-grow_vertical = 2
-border_color = Color(0.776426, 0.759207, 0.832554, 1)
-border_width = 3.0
-editor_only = false
-
-[node name="Label" type="Label" parent="."]
+[node name="Rect" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 19.0
-offset_top = -15.0
-offset_right = 139.0
-offset_bottom = 16.0
-text = "2D Vectors"
-label_settings = SubResource("LabelSettings_mvsta")
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_right = 1112.0
+offset_bottom = 345.0
 
-[node name="ColorRect" type="ColorRect" parent="Label"]
-visible = false
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1112.0
+offset_bottom = 345.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6np1")
 
 [node name="Math" type="FlowContainer" parent="."]
 layout_mode = 1
@@ -78,10 +54,10 @@ anchor_left = 0.017
 anchor_top = 0.026
 anchor_right = 0.017
 anchor_bottom = 0.026
-offset_left = 19.0
-offset_top = 31.0
+offset_left = 18.999998
+offset_top = 38.999996
 offset_right = 916.0
-offset_bottom = 323.0
+offset_bottom = 331.0
 theme_override_constants/v_separation = -41
 vertical = true
 
@@ -1019,9 +995,9 @@ anchor_top = 0.026
 anchor_right = 0.017
 anchor_bottom = 0.026
 offset_left = 881.096
-offset_top = 34.0
+offset_top = 41.999996
 offset_right = 1079.096
-offset_bottom = 240.0
+offset_bottom = 248.0
 theme_override_constants/separation = 34
 
 [node name="Control" type="Control" parent="ToolButtons"]
@@ -1085,23 +1061,20 @@ text = "Extras"
 [node name="SplashText" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.011000001
-anchor_top = 0.5
-anchor_right = 0.56700003
-anchor_bottom = 0.541
-offset_left = 19.0
-offset_top = 291.0
-offset_right = 353.232
-offset_bottom = 319.0
+offset_left = 12.0
+offset_top = 306.0
+offset_right = 1090.0
+offset_bottom = 334.0
 mouse_filter = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 20
 text = "This is splash text"
-fit_content = true
 scroll_active = false
 vertical_alignment = 1
 
 [node name="SplashTextTimer" type="Timer" parent="SplashText"]
 wait_time = 4.0
 one_shot = true
+
+[node name="PanelBar" parent="." instance=ExtResource("4_o6np1")]
+layout_mode = 0
