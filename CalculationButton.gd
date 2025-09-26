@@ -34,19 +34,21 @@ func disable():
 	disabled = true
 	
 func enable(message : String = expression_text):
-	if expression_text == "":
+	if message.trim_prefix(" ").trim_suffix(" ") == "":
+		push_warning(self, " message is blank, nothing can be read from this.")
 		return
-	var error = expression.parse(message, ["myPanelOwner.name"])
-	print_debug(error)
+		
+	var error = expression.parse(message, ["field"])
 	if error != OK:
 		printerr(expression.get_error_text())
-		print_debug(expression.get_error_text(), ", ", error)
+		push_error(expression.get_error_text(), ", ", error)
 		return
-	var result = expression.execute([myPanelOwner.name], self)
-	if !expression.has_execute_failed():
-		print_debug(expression.execute())
-	else:
-		print_debug(expression.get_error_text())
-		breakpoint
-	text = str(result)
+		
+	var result = expression.execute([myPanelOwner.input_fields], self)
+	if expression.has_execute_failed():
+		push_error(expression.get_error_text())
+		return
+	
+	## NOTE: Result should be a float
+	text = "%.4f" % result
 	disabled = false

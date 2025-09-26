@@ -2,10 +2,16 @@ extends LineEdit
 class_name InputField
 
 @onready var myPanelOwner : CalculatorPanel = owner
+## The id of this InputField.
+## This value is REQUIRED for a scene with an InputField to run.
+## The id is used by the CalculationButton to get a field from the CalculationPanel.
+@export var id : String
+@export var default_string : String
 
 func _ready() -> void:
+	assert( id.trim_prefix(" ").trim_suffix(" ") != "", "ERROR: " + str(self) + " is missing an id! Please set one in the inspector!")
 	gui_input.connect(on_mouse_click.bind(self))
-	myPanelOwner.input_fields.append(self)
+	myPanelOwner.input_fields[id] = self
 
 func on_mouse_click(event : InputEvent, input_field : LineEdit):
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed and event.as_text() == "Left Mouse Button":

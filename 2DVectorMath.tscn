@@ -18,17 +18,13 @@ font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="2DVectorMath" type="Control" node_paths=PackedStringArray("AX_input_field", "AY_input_field", "BX_input_field", "BY_input_field", "S_input_field", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+[node name="2DVectorMath" type="Control" node_paths=PackedStringArray("extra_calculations", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 script = ExtResource("1_ab8oc")
-AX_input_field = NodePath("Math/UserInputContainer/A_VectorContainer/InputField")
-AY_input_field = NodePath("Math/UserInputContainer/A_VectorContainer/InputField2")
-BX_input_field = NodePath("Math/UserInputContainer/B_VectorContainer/InputField")
-BY_input_field = NodePath("Math/UserInputContainer/B_VectorContainer/InputField2")
-S_input_field = NodePath("Math/UserInputContainer/S_Container/InputField")
+extra_calculations = [NodePath("Math/Calculations/A∠Radians"), NodePath("Math/Calculations/B∠Radians"), NodePath("Math/Calculations/A∠Degrees"), NodePath("Math/Calculations/B∠Degrees")]
 reset_button = NodePath("ToolButtons/Control2/Reset")
 calculate_button = NodePath("ToolButtons/Control/Calculate")
 extras_button = NodePath("ToolButtons/Control3/Extras")
@@ -110,7 +106,7 @@ theme_override_font_sizes/font_size = 24
 text = "A=["
 horizontal_alignment = 2
 
-[node name="InputField" type="LineEdit" parent="Math/UserInputContainer/A_VectorContainer"]
+[node name="InputField (AX)" type="LineEdit" parent="Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_left = 46.0
 offset_top = 3.0
@@ -120,9 +116,10 @@ size_flags_horizontal = 3
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
+id = "AX"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField2" type="LineEdit" parent="Math/UserInputContainer/A_VectorContainer"]
+[node name="InputField (AY)" type="LineEdit" parent="Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_left = 181.0
 offset_top = 3.0
@@ -132,6 +129,7 @@ size_flags_horizontal = 3
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
+id = "AY"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
 [node name="LabelEnd" type="Label" parent="Math/UserInputContainer/A_VectorContainer"]
@@ -163,7 +161,7 @@ theme_override_font_sizes/font_size = 24
 text = "B=["
 horizontal_alignment = 2
 
-[node name="InputField" type="LineEdit" parent="Math/UserInputContainer/B_VectorContainer"]
+[node name="InputField (BX)" type="LineEdit" parent="Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 5.0
@@ -173,9 +171,10 @@ size_flags_horizontal = 3
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
+id = "BX"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField2" type="LineEdit" parent="Math/UserInputContainer/B_VectorContainer"]
+[node name="InputField (BY)" type="LineEdit" parent="Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 185.0
 offset_top = 5.0
@@ -185,6 +184,7 @@ size_flags_horizontal = 3
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
+id = "BY"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
 [node name="LabelEnd" type="Label" parent="Math/UserInputContainer/B_VectorContainer"]
@@ -219,7 +219,7 @@ text = "s=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="InputField" type="LineEdit" parent="Math/UserInputContainer/S_Container"]
+[node name="InputField (S)" type="LineEdit" parent="Math/UserInputContainer/S_Container"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 5.0
@@ -229,6 +229,8 @@ size_flags_horizontal = 3
 text = "1"
 alignment = 1
 script = ExtResource("2_r3pd2")
+id = "S"
+default_string = "1"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
 [node name="LabelEnd" type="Label" parent="Math/UserInputContainer/S_Container"]
@@ -279,12 +281,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/A+B/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
-expression_text = "myPanelOwner.name + \"fart\""
+expression_text = "float(field[\"AX\"].text) + float(field[\"BX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/A+B/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"AY\"].text) + float(field[\"BY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/A+B"]
@@ -327,11 +330,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/A-B/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"AX\"].text) - float(field[\"BX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/A-B/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"AY\"].text) - float(field[\"BY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/A-B"]
@@ -374,11 +379,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/B-A/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"BX\"].text) - float(field[\"AX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/B-A/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"BY\"].text) - float(field[\"AY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/B-A"]
@@ -422,6 +429,7 @@ offset_top = 6.0
 offset_right = 156.0
 offset_bottom = 31.0
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).dot(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/A∘B"]
@@ -466,6 +474,7 @@ offset_top = 6.0
 offset_right = 164.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).length()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/||A||"]
@@ -510,6 +519,7 @@ offset_top = 6.0
 offset_right = 165.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).length()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/||B||"]
@@ -553,6 +563,7 @@ offset_top = 6.0
 offset_right = 125.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "abs(rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle_to(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)))))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/θDegrees"]
@@ -597,6 +608,7 @@ offset_top = 6.0
 offset_right = 127.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "abs(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle_to(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text))))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/θRadians"]
@@ -639,6 +651,7 @@ offset_top = 6.0
 offset_right = 144.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/A∠Radians"]
@@ -681,6 +694,7 @@ offset_top = 6.0
 offset_right = 143.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/B∠Radians"]
@@ -723,6 +737,7 @@ offset_top = 6.0
 offset_right = 144.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle())"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/A∠Degrees"]
@@ -765,6 +780,7 @@ offset_top = 6.0
 offset_right = 143.0
 offset_bottom = 33.0
 script = ExtResource("3_o6np1")
+expression_text = "rad_to_deg(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle())"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/B∠Degrees"]
@@ -812,11 +828,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/sA/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"AX\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/sA/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"AY\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/sA"]
@@ -864,11 +882,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/sB/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(field[\"BX\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/sB/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "float(myPanelOwner.input_fields[\"BY\"].text) * float(myPanelOwner.input_fields[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/sB"]
@@ -916,11 +936,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/|A|/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).normalized().x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/|A|/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).normalized().y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/|A|"]
@@ -968,11 +990,13 @@ split_offset = 85
 [node name="ButtonX" type="Button" parent="Math/Calculations/|B|/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).normalized().x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="Math/Calculations/|B|/HSplitContainer"]
 layout_mode = 2
 script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).normalized().y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="Math/Calculations/|B|"]
