@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c27exms4ti8nb"]
+[gd_scene load_steps=9 format=3 uid="uid://c27exms4ti8nb"]
 
 [ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_ab8oc"]
 [ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_r3pd2"]
 [ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_o6np1"]
 [ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_o6np1"]
+[ext_resource type="Texture2D" uid="uid://dy2qdtgaaxqb2" path="res://Assets/Textures/Panel Icons/2DVectorIcon.png" id="5_r5yw5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
 bg_color = Color(0.31, 0.31, 0.31, 0.75686276)
@@ -1079,3 +1080,5 @@ one_shot = true
 
 [node name="PanelBar" parent="." instance=ExtResource("4_o6np1")]
 layout_mode = 0
+custom_icon = ExtResource("5_r5yw5")
+custom_title = &"2D Vectors"

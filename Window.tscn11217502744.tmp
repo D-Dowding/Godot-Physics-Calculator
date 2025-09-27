@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm0rjjotdncuo"]
+[gd_scene load_steps=10 format=3 uid="uid://cm0rjjotdncuo"]
 
 [ext_resource type="PackedScene" uid="uid://c27exms4ti8nb" path="res://Scenes/CalculatorPanels/2DVectorMath.tscn" id="1_808dq"]
 [ext_resource type="Script" uid="uid://phcenkj0kehk" path="res://Window.gd" id="1_tpxq1"]
-[ext_resource type="Script" uid="uid://c0imtngtv0du7" path="res://Scripts/CalculatorPanelData.gd" id="2_nt685"]
-[ext_resource type="Script" uid="uid://biqkrgc35cry" path="res://Scripts/CalculatorPanelMenu.gd" id="3_hfd2n"]
+[ext_resource type="Script" uid="uid://c0imtngtv0du7" path="res://CalculatorPanelData.gd" id="2_nt685"]
+[ext_resource type="Script" uid="uid://biqkrgc35cry" path="res://CalculatorPanelMenu.gd" id="3_hfd2n"]
 [ext_resource type="Texture2D" uid="uid://dy2qdtgaaxqb2" path="res://Assets/Textures/Panel Icons/2DVectorIcon.png" id="3_tpxq1"]
 [ext_resource type="Texture2D" uid="uid://bc4ou4duc1ri0" path="res://Assets/Textures/Panel Icons/2DMatrixIcon.png" id="4_0aqkh"]
 [ext_resource type="Texture2D" uid="uid://bmi5detu10s87" path="res://Assets/Textures/Panel Icons/3DMatrixIcon.png" id="5_ynis4"]
-[ext_resource type="Texture2D" uid="uid://dx6nrpm0sa8fu" path="res://Assets/Textures/Exit Icons/ExitUnpressedIcon.png" id="7_xgw13"]
 
-[sub_resource type="Resource" id="Resource_ynis4"]
+[sub_resource type="Resource" id="Resource_xgw13"]
 script = ExtResource("2_nt685")
 scene = ExtResource("1_808dq")
 metadata/_custom_type_script = "uid://c0imtngtv0du7"
@@ -26,9 +25,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_tpxq1")
-calculator_panel_data = Dictionary[int, ExtResource("2_nt685")]({
-0: SubResource("Resource_ynis4")
-})
+calculator_panel_data = Array[ExtResource("2_nt685")]([SubResource("Resource_xgw13")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -41,17 +38,27 @@ texture = SubResource("CanvasTexture_hjewq")
 
 [node name="CalculatorPanels" type="Node" parent="."]
 
+[node name="2DVectorMath" parent="CalculatorPanels" instance=ExtResource("1_808dq")]
+anchor_left = 0.017
+anchor_top = 0.046000004
+anchor_right = 0.98300004
+anchor_bottom = 0.57900006
+offset_left = 0.41599846
+offset_top = 0.19199753
+offset_right = -0.41601563
+offset_bottom = -0.19204712
+
 [node name="CalculatorPanelMenu" type="MenuButton" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -193.0
-offset_bottom = 62.0
+offset_left = -110.0
+offset_bottom = 30.0
 grow_horizontal = 0
-text = "Panel Menu"
+text = "Open Panel"
 flat = false
-item_count = 4
+item_count = 3
 popup/item_0/text = "2D Vectors"
 popup/item_0/icon = ExtResource("3_tpxq1")
 popup/item_0/checkable = 1
@@ -64,7 +71,4 @@ popup/item_2/text = "3D Matricies (Unimplemented)"
 popup/item_2/icon = ExtResource("5_ynis4")
 popup/item_2/checkable = 1
 popup/item_2/id = 2
-popup/item_3/text = "Exit All Panels"
-popup/item_3/icon = ExtResource("7_xgw13")
-popup/item_3/id = 999
 script = ExtResource("3_hfd2n")

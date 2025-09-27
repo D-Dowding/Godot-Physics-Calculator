@@ -2,34 +2,44 @@
 extends Panel
 class_name PanelBar
 
+@export var custom_icon : Texture2D
+@export var custom_title : StringName
+
 var offset : Vector2
 var dragging : bool = false
 @onready var parent : CalculatorPanel
-@onready var panel_title : Label = $PanelTitle
+@onready var panel_title : Label = $PanelSplash/PanelTitle
+@onready var panel_icon : TextureRect = $PanelSplash/PanelIcon
 @onready var panel_exit_button : TextureButton = $PanelExitButton
-@onready var window : Control
+@onready var window : CalculatorWindow
 
 func _ready() -> void:
+	try_set_panel_title()
+	try_set_panel_icon()
 	if get_owner() and get_owner() is CalculatorPanel:
 		parent = get_owner()
-		panel_title.text = parent.name
-	if get_tree().get_root().get_child(0).name == "Window":
+	if get_tree().get_root().get_child(0) is CalculatorWindow:
 		window = get_tree().get_root().get_child(0)
 	gui_input.connect(drag)
-	panel_exit_button.pressed.connect(close_panel)
+	$PanelSplash.gui_input.connect(drag)
+	if parent:
+		panel_exit_button.pressed.connect(parent.close_panel)
 
 func _process(delta: float) -> void:
-	if Engine.is_editor_hint() and parent and parent.name != panel_title.text:
-		panel_title.text = parent.name
+	if Engine.is_editor_hint():
+		try_set_panel_title()
+		try_set_panel_icon()
 		return
 	
-	if !Engine.is_editor_hint():
+	if !Engine.is_editor_hint() and window and parent:
 		## Drag window
 		if dragging:
 			mouse_default_cursor_shape = CursorShape.CURSOR_DRAG
+			$PanelSplash.mouse_default_cursor_shape = CursorShape.CURSOR_DRAG
 			parent.global_position = get_global_mouse_position() + offset
 		else:
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
+			$PanelSplash.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 		## Clamp to window size
 		if window.size > parent.rect.size:
 			parent.global_position = global_position.clamp(Vector2.ZERO, window.size - parent.rect.size)
@@ -43,5 +53,10 @@ func drag(event: InputEvent) -> void:
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and !(event as InputEventMouseButton).is_pressed():
 		dragging = false
 
-func close_panel():
-	parent.queue_free()
+func try_set_panel_title():
+	if custom_title != null and panel_title.text != custom_title:
+		panel_title.text = custom_title
+		
+func try_set_panel_icon():
+	if custom_icon != null and panel_icon.texture != custom_icon:
+		panel_icon.texture = custom_icon

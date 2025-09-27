@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy2qdtgaaxqb2"
-path="res://.godot/imported/2DVectorIcon.png-bf0e2c50f2886eea4ea2669f72bd2569.ctex"
+uid="uid://bmi5detu10s87"
+path="res://.godot/imported/3DMatrixIcon.png-6705c8bfa3355fdd6d5d48c5d897b05e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2DVectorIcon.png"
-dest_files=["res://.godot/imported/2DVectorIcon.png-bf0e2c50f2886eea4ea2669f72bd2569.ctex"]
+source_file="res://Assets/Textures/Panel Icons/3DMatrixIcon.png"
+dest_files=["res://.godot/imported/3DMatrixIcon.png-6705c8bfa3355fdd6d5d48c5d897b05e.ctex"]
 
 [params]
 

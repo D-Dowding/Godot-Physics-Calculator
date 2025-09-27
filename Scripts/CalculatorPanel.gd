@@ -1,7 +1,6 @@
 extends Control
 class_name CalculatorPanel
 
-@export_range(0x00, 0xFF) var panel_id : int = 0x00
 @export var extra_calculations : Array[Control]
 
 @export_group("Tool Buttons")
@@ -15,6 +14,7 @@ class_name CalculatorPanel
 
 ## This needs to be here because Control changes based on window size, whereas rect does not
 @onready var rect = $Rect
+@onready var window : CalculatorWindow = get_tree().get_root().get_child(0)
 
 var errored_input_fields : Array[InputField]
 var input_fields: Dictionary[String, InputField]
@@ -24,6 +24,8 @@ const DEFAULT_HIGHLIGHT_TIME : float = 4.0
 const ERROR_HIGHLIGHT_RATE : float = 5.5
 const ERROR_COLOR_INTENSITY : float = 3.0
 var error_time_elapsed : float = -1
+
+signal calculator_panel_closed(panel : CalculatorPanel)
 
 func _ready() -> void:
 	reset_button.pressed.connect(reset_fields)
@@ -95,3 +97,7 @@ func _get_current_field() -> LineEdit:
 		if input_field.is_editing():
 			return input_field
 	return null
+
+func close_panel():
+	emit_signal("calculator_panel_closed", self)
+	window.close_panel_via_obj(self)
