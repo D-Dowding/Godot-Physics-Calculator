@@ -3,4 +3,5 @@
 /android/
 Export/
 .editorconfig
+export_presets
 *.tmp
