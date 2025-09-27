@@ -19,7 +19,7 @@ func _ready() -> void:
 	panel_exit_button.pressed.connect(close_panel)
 
 func _process(delta: float) -> void:
-	if Engine.is_editor_hint() and parent:
+	if Engine.is_editor_hint() and parent and parent.name != panel_title.text:
 		panel_title.text = parent.name
 		return
 	

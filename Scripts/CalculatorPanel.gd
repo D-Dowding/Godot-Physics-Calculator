@@ -1,6 +1,7 @@
 extends Control
 class_name CalculatorPanel
 
+@export_range(0x00, 0xFF) var panel_id : int = 0x00
 @export var extra_calculations : Array[Control]
 
 @export_group("Tool Buttons")

@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Physics Calculator"
 
+[global_group]
+
+CalculatorPanel=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
