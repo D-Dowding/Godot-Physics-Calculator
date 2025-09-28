@@ -12,8 +12,6 @@ class_name CalculatorPanel
 @export var splash_text : RichTextLabel
 @export var splash_text_timer : Timer
 
-## This needs to be here because Control changes based on window size, whereas rect does not
-@onready var rect = $Rect
 @onready var window : CalculatorWindow = get_tree().get_root().get_child(0)
 
 var errored_input_fields : Array[InputField]
@@ -36,6 +34,10 @@ func _ready() -> void:
 	disable_splash_text()
 
 func _physics_process(delta: float) -> void:
+	$ReferenceRect.visible = window.debug
+	if window.debug:
+		$ReferenceRect.size = size
+	
 	if error_time_elapsed > 0:
 		error_time_elapsed -= delta
 		error_time_elapsed = clamp(error_time_elapsed, 0, DEFAULT_HIGHLIGHT_TIME)
@@ -101,3 +103,8 @@ func _get_current_field() -> LineEdit:
 func close_panel():
 	emit_signal("calculator_panel_closed", self)
 	window.close_panel_via_obj(self)
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and (event as InputEventMouseButton).is_pressed():
+		print_debug("Hello")
+		window.calculator_panels_node.move_child(self, window.calculator_panels_node.get_child_count() - 1)

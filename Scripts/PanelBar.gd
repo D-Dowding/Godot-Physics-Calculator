@@ -41,13 +41,14 @@ func _process(delta: float) -> void:
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 			$PanelSplash.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 		## Clamp to window size
-		if window.size > parent.rect.size:
-			parent.global_position = global_position.clamp(Vector2.ZERO, window.size - parent.rect.size)
-		else:
-			parent.global_position = global_position.clamp(Vector2.ZERO, window.size - panel_title.size)
+		#if window.size > parent.size:
+			#parent.global_position = global_position.clamp(Vector2.ZERO, window.size - parent.size)
+		#else:
+			#parent.global_position = global_position.clamp(Vector2.ZERO, window.size - panel_title.size)
 	
 func drag(event: InputEvent) -> void:
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
+		print_debug("Test")
 		dragging = true
 		offset = global_position - get_global_mouse_position()
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and !(event as InputEventMouseButton).is_pressed():

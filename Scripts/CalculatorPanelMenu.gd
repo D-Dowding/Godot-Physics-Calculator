@@ -3,6 +3,12 @@ extends MenuButton
 @onready var window : CalculatorWindow = get_tree().get_root().get_child(0)
 const EXIT_ALL_PANELS_ID : int = 999
 
+func _physics_process(delta: float) -> void:
+	$ReferenceRect.visible = window.debug
+	if window.debug:
+		$ReferenceRect.size = size
+		
+
 func _ready() -> void:
 	about_to_popup.connect(update_checkboxes)
 	get_popup().id_pressed.connect(id_pressed)

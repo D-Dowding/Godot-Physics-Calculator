@@ -7,9 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dy2qdtgaaxqb2" path="res://Assets/Textures/Panel Icons/2DVectorIcon.png" id="5_r5yw5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
-bg_color = Color(0.31, 0.31, 0.31, 0.75686276)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
+bg_color = Color(0.57254905, 0.57254905, 0.57254905, 1)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
@@ -24,32 +29,27 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="2DVectorMath" type="Control" node_paths=PackedStringArray("extra_calculations", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
-anchor_right = 0.96500003
-anchor_bottom = 0.523
-offset_right = 0.3199463
-offset_bottom = 6.0960083
+anchors_preset = 0
+offset_right = 1112.0
+offset_bottom = 345.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 script = ExtResource("1_ab8oc")
-extra_calculations = [NodePath("Math/Calculations/A∠Radians"), NodePath("Math/Calculations/B∠Radians"), NodePath("Math/Calculations/A∠Degrees"), NodePath("Math/Calculations/B∠Degrees")]
-reset_button = NodePath("ToolButtons/Control2/Reset")
-calculate_button = NodePath("ToolButtons/Control/Calculate")
-extras_button = NodePath("ToolButtons/Control3/Extras")
-splash_text = NodePath("SplashText")
-splash_text_timer = NodePath("SplashText/SplashTextTimer")
+extra_calculations = [NodePath("PanelBackground/Math/Calculations/A∠Radians"), NodePath("PanelBackground/Math/Calculations/B∠Radians"), NodePath("PanelBackground/Math/Calculations/A∠Degrees"), NodePath("PanelBackground/Math/Calculations/B∠Degrees")]
+reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
+calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
+extras_button = NodePath("PanelBackground/ToolButtons/Control3/Extras")
+splash_text = NodePath("PanelBackground/SplashText")
+splash_text_timer = NodePath("PanelBackground/SplashText/SplashTextTimer")
 
-[node name="Rect" type="AspectRatioContainer" parent="."]
+[node name="PanelBackground" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1112.0
 offset_bottom = 345.0
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 1112.0
-offset_bottom = 345.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_o6np1")
 
-[node name="Math" type="FlowContainer" parent="."]
+[node name="Math" type="FlowContainer" parent="PanelBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.017
@@ -60,127 +60,140 @@ offset_left = 18.999998
 offset_top = 38.999996
 offset_right = 916.0
 offset_bottom = 331.0
+mouse_filter = 2
 theme_override_constants/v_separation = -41
 vertical = true
 
-[node name="UserInputContainer" type="HBoxContainer" parent="Math"]
+[node name="UserInputContainer" type="HBoxContainer" parent="PanelBackground/Math"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/separation = 334
 alignment = 1
 
-[node name="A_VectorContainer" type="Control" parent="Math/UserInputContainer"]
+[node name="A_VectorContainer" type="Control" parent="PanelBackground/Math/UserInputContainer"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/UserInputContainer/A_VectorContainer"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_right = 39.5625
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "A=["
 horizontal_alignment = 2
 
-[node name="InputField (AX)" type="LineEdit" parent="Math/UserInputContainer/A_VectorContainer"]
+[node name="InputField (AX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_left = 46.0
 offset_top = 3.0
 offset_right = 169.4375
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
 id = "AX"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AY)" type="LineEdit" parent="Math/UserInputContainer/A_VectorContainer"]
+[node name="InputField (AY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_left = 181.0
 offset_top = 3.0
 offset_right = 306.4375
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
 id = "AY"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="LabelEnd" type="Label" parent="Math/UserInputContainer/A_VectorContainer"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_left = 313.0
 offset_right = 326.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 
-[node name="B_VectorContainer" type="Control" parent="Math/UserInputContainer"]
+[node name="B_VectorContainer" type="Control" parent="PanelBackground/Math/UserInputContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/UserInputContainer/B_VectorContainer"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 1.0
 offset_right = 44.0
 offset_bottom = 35.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "B=["
 horizontal_alignment = 2
 
-[node name="InputField (BX)" type="LineEdit" parent="Math/UserInputContainer/B_VectorContainer"]
+[node name="InputField (BX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 5.0
 offset_right = 172.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
+mouse_filter = 1
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
 id = "BX"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (BY)" type="LineEdit" parent="Math/UserInputContainer/B_VectorContainer"]
+[node name="InputField (BY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 185.0
 offset_top = 5.0
 offset_right = 306.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
+mouse_filter = 1
 placeholder_text = "0"
 alignment = 1
 script = ExtResource("2_r3pd2")
 id = "BY"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="LabelEnd" type="Label" parent="Math/UserInputContainer/B_VectorContainer"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 312.0
 offset_top = 1.0
 offset_right = 338.0
 offset_bottom = 35.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 
-[node name="S_Container" type="Control" parent="Math/UserInputContainer"]
+[node name="S_Container" type="Control" parent="PanelBackground/Math/UserInputContainer"]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/UserInputContainer/S_Container"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/S_Container"]
 layout_mode = 0
 offset_right = 38.0
 offset_bottom = 36.0
@@ -188,7 +201,7 @@ size_flags_horizontal = 3
 tooltip_text = "Scalar
 A*s, B*s
 A static value that is multiplied by each component of the A vector and the B vector."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -197,13 +210,14 @@ text = "s=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="InputField (S)" type="LineEdit" parent="Math/UserInputContainer/S_Container"]
+[node name="InputField (S)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/S_Container"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 5.0
 offset_right = 167.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
+mouse_filter = 1
 text = "1"
 alignment = 1
 script = ExtResource("2_r3pd2")
@@ -211,36 +225,40 @@ id = "S"
 default_string = "1"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="LabelEnd" type="Label" parent="Math/UserInputContainer/S_Container"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/S_Container"]
 layout_mode = 0
 offset_left = 173.0
 offset_top = 1.0
 offset_right = 189.0
 offset_bottom = 37.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="Calculations" type="GridContainer" parent="Math"]
+[node name="Calculations" type="GridContainer" parent="PanelBackground/Math"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/h_separation = 299
 theme_override_constants/v_separation = 34
 columns = 3
 
-[node name="A+B" type="Control" parent="Math/Calculations"]
+[node name="A+B" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/A+B"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A+B"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
@@ -248,48 +266,53 @@ text = "A+B=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/A+B"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/A+B"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/A+B/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"AX\"].text) + float(field[\"BX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/A+B/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/A+B"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"AY\"].text) + float(field[\"BY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/A+B"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A+B"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="A-B" type="Control" parent="Math/Calculations"]
+[node name="A-B" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/A-B"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A-B"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
@@ -297,48 +320,53 @@ text = "A-B=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/A-B"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/A-B"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/A-B/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"AX\"].text) - float(field[\"BX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/A-B/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/A-B"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"AY\"].text) - float(field[\"BY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/A-B"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A-B"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="B-A" type="Control" parent="Math/Calculations"]
+[node name="B-A" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/B-A"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B-A"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
@@ -346,44 +374,48 @@ text = "B-A=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/B-A"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/B-A"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/B-A/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"BX\"].text) - float(field[\"AX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/B-A/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/B-A"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"BY\"].text) - float(field[\"AY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/B-A"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B-A"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="A∘B" type="Control" parent="Math/Calculations"]
+[node name="A∘B" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/A∘B"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∘B"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -391,7 +423,7 @@ size_flags_horizontal = 3
 tooltip_text = "Dot Product 
 A∘B = (Ax * Bx) + (Ay * By)
 Used to find the difference between two angles."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -400,34 +432,37 @@ text = "A∘B=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/A∘B"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∘B"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
 offset_right = 156.0
 offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).dot(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/A∘B"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∘B"]
 layout_mode = 0
 offset_left = 161.0
 offset_right = 169.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="||A||" type="Control" parent="Math/Calculations"]
+[node name="||A||" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/||A||"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/||A||"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -435,7 +470,7 @@ size_flags_horizontal = 3
 tooltip_text = "Magnitude
 A² + B² = C²
 The length of the vector. This is also the hypotenuse of the vector triange."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -445,34 +480,37 @@ label_settings = SubResource("LabelSettings_hjewq")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/||A||"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/||A||"]
 layout_mode = 0
 offset_left = 79.0
 offset_top = 6.0
 offset_right = 164.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).length()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/||A||"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/||A||"]
 layout_mode = 0
 offset_left = 168.0
 offset_right = 176.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="||B||" type="Control" parent="Math/Calculations"]
+[node name="||B||" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/||B||"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/||B||"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -480,7 +518,7 @@ size_flags_horizontal = 3
 tooltip_text = "Magnitude
 A² + B² = C²
 The length of the vector. This is also the hypotenuse of the vector triange."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -490,34 +528,37 @@ label_settings = SubResource("LabelSettings_hjewq")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/||B||"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/||B||"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 6.0
 offset_right = 165.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).length()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/||B||"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/||B||"]
 layout_mode = 0
 offset_left = 168.0
 offset_right = 176.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="θDegrees" type="Control" parent="Math/Calculations"]
+[node name="θDegrees" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/θDegrees"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/θDegrees"]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 34.0
@@ -525,7 +566,7 @@ size_flags_horizontal = 3
 tooltip_text = "Angle Difference (Degrees)
 degrees = radians * 180/PI
 The degree representation of the angle between A vector and B vector."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -534,34 +575,37 @@ text = "θ=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/θDegrees"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/θDegrees"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 6.0
 offset_right = 125.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "abs(rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle_to(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)))))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/θDegrees"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/θDegrees"]
 layout_mode = 0
 offset_left = 130.0
 offset_right = 236.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "] degrees"
 vertical_alignment = 1
 
-[node name="θRadians" type="Control" parent="Math/Calculations"]
+[node name="θRadians" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/θRadians"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/θRadians"]
 layout_mode = 0
 offset_right = 28.0
 offset_bottom = 34.0
@@ -570,7 +614,7 @@ tooltip_text = "Angle Difference (Radians)
 radians = acos((A ∘ B)  /  (||A|| * ||B||))
 radians = degrees * PI/180
 The radian representation of the angle between A vector and B vector."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -579,41 +623,44 @@ text = "θ=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/θRadians"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/θRadians"]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 6.0
 offset_right = 127.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "abs(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle_to(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text))))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/θRadians"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/θRadians"]
 layout_mode = 0
 offset_left = 133.0
 offset_right = 141.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "] radians"
 vertical_alignment = 1
 
-[node name="A∠Radians" type="Control" parent="Math/Calculations"]
+[node name="A∠Radians" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/A∠Radians"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∠Radians"]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
 tooltip_text = "Angle (Radians)
 The angle of the vector in radians."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -622,41 +669,44 @@ text = "A∠=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/A∠Radians"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∠Radians"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 6.0
 offset_right = 144.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/A∠Radians"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∠Radians"]
 layout_mode = 0
 offset_left = 149.0
 offset_right = 255.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "] radians"
 vertical_alignment = 1
 
-[node name="B∠Radians" type="Control" parent="Math/Calculations"]
+[node name="B∠Radians" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/B∠Radians"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B∠Radians"]
 layout_mode = 0
 offset_right = 28.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
 tooltip_text = "Angle (Radians)
 The angle of the vector in radians."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -665,41 +715,44 @@ text = "B∠=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/B∠Radians"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B∠Radians"]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 6.0
 offset_right = 143.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/B∠Radians"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B∠Radians"]
 layout_mode = 0
 offset_left = 148.0
 offset_right = 249.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "] radians"
 vertical_alignment = 1
 
-[node name="A∠Degrees" type="Control" parent="Math/Calculations"]
+[node name="A∠Degrees" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/A∠Degrees"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∠Degrees"]
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
 tooltip_text = "Angle (Degrees)
 The angle of the vector in degrees."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -708,41 +761,44 @@ text = "A∠=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/A∠Degrees"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∠Degrees"]
 layout_mode = 0
 offset_left = 59.0
 offset_top = 6.0
 offset_right = 144.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle())"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/A∠Degrees"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∠Degrees"]
 layout_mode = 0
 offset_left = 149.0
 offset_right = 255.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "] degrees"
 vertical_alignment = 1
 
-[node name="B∠Degrees" type="Control" parent="Math/Calculations"]
+[node name="B∠Degrees" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/B∠Degrees"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B∠Degrees"]
 layout_mode = 0
 offset_right = 28.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
 tooltip_text = "Angle (Degrees)
 The angle of the vector in degrees."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -751,34 +807,37 @@ text = "B∠=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Math/Calculations/B∠Degrees"]
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B∠Degrees"]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 6.0
 offset_right = 143.0
 offset_bottom = 33.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "rad_to_deg(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle())"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/B∠Degrees"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B∠Degrees"]
 layout_mode = 0
 offset_left = 148.0
 offset_right = 249.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "] degrees"
 vertical_alignment = 1
 
-[node name="sA" type="Control" parent="Math/Calculations"]
+[node name="sA" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/sA"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/sA"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -786,7 +845,7 @@ size_flags_horizontal = 3
 tooltip_text = "Multiplied Vector
 [x, y] * Scalar
 The result of multiplying the vector by the scalar."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -795,44 +854,48 @@ text = "sA=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/sA"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/sA"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/sA/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"AX\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/sA/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/sA"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"AY\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/sA"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/sA"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="sB" type="Control" parent="Math/Calculations"]
+[node name="sB" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/sB"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/sB"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -840,7 +903,7 @@ size_flags_horizontal = 3
 tooltip_text = "Multiplied Vector
 [x, y] * Scalar
 The result of multiplying the vector by the scalar."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -849,44 +912,48 @@ text = "sB=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/sB"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/sB"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/sB/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(field[\"BX\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/sB/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/sB"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "float(myPanelOwner.input_fields[\"BY\"].text) * float(myPanelOwner.input_fields[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/sB"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/sB"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="|A|" type="Control" parent="Math/Calculations"]
+[node name="|A|" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/|A|"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/|A|"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -894,7 +961,7 @@ size_flags_horizontal = 3
 tooltip_text = "Normalized Vector
 [x, y] / Length of Vector
 The vector in normalized form. This is the direction the vector is pointing without the magnitude."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -903,44 +970,48 @@ text = "|A|=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/|A|"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/|A|"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/|A|/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).normalized().x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/|A|/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/|A|"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).normalized().y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/|A|"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/|A|"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="|B|" type="Control" parent="Math/Calculations"]
+[node name="|B|" type="Control" parent="PanelBackground/Math/Calculations"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="Math/Calculations/|B|"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/|B|"]
 layout_mode = 0
 offset_right = 67.0
 offset_bottom = 34.0
@@ -948,7 +1019,7 @@ size_flags_horizontal = 3
 tooltip_text = "Normalized Vector
 [x, y] / Length of Vector
 The vector in normalized form. This is the direction the vector is pointing without the magnitude."
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -957,39 +1028,42 @@ text = "|B|=["
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Math/Calculations/|B|"]
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/|B|"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 6.0
-offset_right = 252.0
+offset_right = 156.0
 offset_bottom = 31.0
-split_offset = 85
-
-[node name="ButtonX" type="Button" parent="Math/Calculations/|B|/HSplitContainer"]
-layout_mode = 2
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).normalized().x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="ButtonY" type="Button" parent="Math/Calculations/|B|/HSplitContainer"]
-layout_mode = 2
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/|B|"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 252.0
+offset_bottom = 31.0
+mouse_filter = 1
 script = ExtResource("3_o6np1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).normalized().y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
-[node name="LabelEnd" type="Label" parent="Math/Calculations/|B|"]
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/|B|"]
 layout_mode = 0
 offset_left = 257.0
 offset_right = 265.0
 offset_bottom = 34.0
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="ToolButtons" type="VBoxContainer" parent="."]
+[node name="ToolButtons" type="VBoxContainer" parent="PanelBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.017
@@ -1000,14 +1074,16 @@ offset_left = 881.096
 offset_top = 41.999996
 offset_right = 1079.096
 offset_bottom = 248.0
+mouse_filter = 2
 theme_override_constants/separation = 34
 
-[node name="Control" type="Control" parent="ToolButtons"]
+[node name="Control" type="Control" parent="PanelBackground/ToolButtons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="Calculate" type="Button" parent="ToolButtons/Control"]
+[node name="Calculate" type="Button" parent="PanelBackground/ToolButtons/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1018,14 +1094,16 @@ offset_bottom = 31.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 1
 text = "Calculate"
 
-[node name="Control2" type="Control" parent="ToolButtons"]
+[node name="Control2" type="Control" parent="PanelBackground/ToolButtons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="Reset" type="Button" parent="ToolButtons/Control2"]
+[node name="Reset" type="Button" parent="PanelBackground/ToolButtons/Control2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1036,15 +1114,17 @@ offset_bottom = 31.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+mouse_filter = 1
 text = "Reset
 "
 
-[node name="Control3" type="Control" parent="ToolButtons"]
+[node name="Control3" type="Control" parent="PanelBackground/ToolButtons"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
-[node name="Extras" type="CheckButton" parent="ToolButtons/Control3"]
+[node name="Extras" type="CheckButton" parent="PanelBackground/ToolButtons/Control3"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1057,16 +1137,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 tooltip_text = "Adds extra calculations not included in the original physics calculator.
 WARNING: It's recommended you keep this off during tests, as the extra options are experimental and prone to change."
+mouse_filter = 1
 mouse_default_cursor_shape = 16
 text = "Extras"
 
-[node name="SplashText" type="RichTextLabel" parent="."]
+[node name="SplashText" type="RichTextLabel" parent="PanelBackground"]
 clip_contents = false
 layout_mode = 1
-offset_left = 12.0
-offset_top = 306.0
-offset_right = 1090.0
-offset_bottom = 334.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -39.0
+offset_right = 1100.0
+offset_bottom = -11.0
+grow_vertical = 0
 mouse_filter = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 20
@@ -1074,11 +1159,21 @@ text = "This is splash text"
 scroll_active = false
 vertical_alignment = 1
 
-[node name="SplashTextTimer" type="Timer" parent="SplashText"]
+[node name="SplashTextTimer" type="Timer" parent="PanelBackground/SplashText"]
 wait_time = 4.0
 one_shot = true
 
 [node name="PanelBar" parent="." instance=ExtResource("4_o6np1")]
 layout_mode = 0
+offset_right = 1112.0
 custom_icon = ExtResource("5_r5yw5")
 custom_title = &"2D Vectors"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+border_width = 1.5
+editor_only = false

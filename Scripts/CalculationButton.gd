@@ -5,6 +5,7 @@ class_name CalculationButton
 @export var remove_trailing_zeros : bool = true
 @onready var expression : Expression = Expression.new()
 @onready var myPanelOwner : CalculatorPanel = owner
+@onready var window : CalculatorWindow = get_tree().get_root().get_child(0)
 const DEFAULT_INVALID_TEXT : String = "INVALID"
 
 signal copied_to_clipboard(string : String)

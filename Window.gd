@@ -2,8 +2,7 @@
 extends Control
 class_name CalculatorWindow
 
-signal instantiated_panel(id : int)
-
+@export var debug : bool = false
 # This is handled like this so as to avoid having to manually set an id for each panel 
 # and praying to god none of them are accidently duplicated.
 # By doing this, I ensure each panel can be have a completely unique id to read via this Dictionary.
@@ -17,6 +16,10 @@ signal instantiated_panel(id : int)
 		
 		calculator_panel_data = value
 
+@onready var calculator_panels_node : Node = $CalculatorPanels
+
+signal instantiated_panel(id : int)
+
 func instantiate_panel(panel_id : int):
 	var p_data : CalculatorPanelData = get_panel_data_via_id(panel_id)
 	if p_data == null or !p_data.scene:
@@ -26,7 +29,8 @@ func instantiate_panel(panel_id : int):
 		return
 	p_data.calculator_panel = p_data.scene.instantiate()
 	p_data.name = p_data.calculator_panel.name
-	p_data.calculator_panel.global_position = p_data.last_position
+	#p_data.calculator_panel.global_position = p_data.last_position
+	p_data.calculator_panel.global_position = Vector2.ZERO
 	$CalculatorPanels.add_child(p_data.calculator_panel)
 	emit_signal("instantiated_panel")
 
