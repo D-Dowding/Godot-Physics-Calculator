@@ -106,5 +106,5 @@ func close_panel():
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and (event as InputEventMouseButton).is_pressed():
-		print_debug("Hello")
+		print_debug("Focusing Panel " + str(self) +  " to Front")
 		window.calculator_panels_node.move_child(self, window.calculator_panels_node.get_child_count() - 1)

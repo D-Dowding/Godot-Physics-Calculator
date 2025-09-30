@@ -47,8 +47,8 @@ func _process(delta: float) -> void:
 			#parent.global_position = global_position.clamp(Vector2.ZERO, window.size - panel_title.size)
 	
 func drag(event: InputEvent) -> void:
-	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
-		print_debug("Test")
+	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and (event as InputEventMouseButton).is_pressed():
+		print_debug("Dragging panel " + str(parent))
 		dragging = true
 		offset = global_position - get_global_mouse_position()
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and !(event as InputEventMouseButton).is_pressed():

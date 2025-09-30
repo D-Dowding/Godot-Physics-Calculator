@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func on_mouse_click(event : InputEvent, input_field : LineEdit):
 	if event is InputEventMouseButton and (event as InputEventMouseButton).is_pressed():
-		# Move CalculatorPanel to front
+		## Move CalculatorPanel to front
 		window.calculator_panels_node.move_child(myPanelOwner, window.calculator_panels_node.get_child_count() - 1)
 		if myPanelOwner.errored_input_fields.has(input_field):
 			input_field.modulate = Color(1.0, 1.0, 1.0, 1.0)

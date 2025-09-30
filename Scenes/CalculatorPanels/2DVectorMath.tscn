@@ -8,9 +8,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
 bg_color = Color(0.57254905, 0.57254905, 0.57254905, 1)
-border_width_left = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 corner_radius_top_left = 10
@@ -30,8 +31,8 @@ outline_color = Color(0, 0, 0, 1)
 [node name="2DVectorMath" type="Control" node_paths=PackedStringArray("extra_calculations", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1112.0
-offset_bottom = 345.0
+offset_right = 1059.0
+offset_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 script = ExtResource("1_ab8oc")
@@ -44,8 +45,8 @@ splash_text_timer = NodePath("PanelBackground/SplashText/SplashTextTimer")
 
 [node name="PanelBackground" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1112.0
-offset_bottom = 345.0
+offset_right = 1059.0
+offset_bottom = 360.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_o6np1")
 
@@ -58,7 +59,7 @@ anchor_right = 0.017
 anchor_bottom = 0.026
 offset_left = 18.999998
 offset_top = 38.999996
-offset_right = 916.0
+offset_right = 916.00073
 offset_bottom = 331.0
 mouse_filter = 2
 theme_override_constants/v_separation = -41
@@ -1070,10 +1071,11 @@ anchor_left = 0.017
 anchor_top = 0.026
 anchor_right = 0.017
 anchor_bottom = 0.026
-offset_left = 881.096
-offset_top = 41.999996
-offset_right = 1079.096
-offset_bottom = 248.0
+offset_left = 896.997
+offset_top = 43.64
+offset_right = 1020.898
+offset_bottom = 249.64
+grow_horizontal = 0
 mouse_filter = 2
 theme_override_constants/separation = 34
 
@@ -1149,7 +1151,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 22.0
 offset_top = -39.0
-offset_right = 1100.0
+offset_right = 1039.0
 offset_bottom = -11.0
 grow_vertical = 0
 mouse_filter = 2
@@ -1165,7 +1167,8 @@ one_shot = true
 
 [node name="PanelBar" parent="." instance=ExtResource("4_o6np1")]
 layout_mode = 0
-offset_right = 1112.0
+offset_right = 1096.4694
+scale = Vector2(0.96582735, 0.96582735)
 custom_icon = ExtResource("5_r5yw5")
 custom_title = &"2D Vectors"
 

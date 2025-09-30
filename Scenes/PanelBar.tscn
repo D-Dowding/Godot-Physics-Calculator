@@ -7,10 +7,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyc05"]
 bg_color = Color(0.86036915, 0.8603692, 0.8603691, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 corner_radius_top_left = 10
@@ -32,6 +32,7 @@ script = ExtResource("1_besty")
 anchors_preset = 0
 offset_right = 154.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="PanelIcon" type="TextureRect" parent="PanelSplash"]
 layout_mode = 0
@@ -48,6 +49,7 @@ offset_left = 53.0
 offset_right = 133.0
 offset_bottom = 40.0
 size_flags_vertical = 0
+mouse_filter = 1
 label_settings = SubResource("LabelSettings_mvsta")
 vertical_alignment = 1
 
