@@ -1,0 +1,1697 @@
+[gd_scene load_steps=7 format=3 uid="uid://lks0vubrlvqm"]
+
+[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_6y8cj"]
+[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_2x0eg"]
+[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_vg01k"]
+[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_v14l8"]
+[ext_resource type="Texture2D" uid="uid://bmi5detu10s87" path="res://Assets/Textures/Panel Icons/3DMatrixIcon.png" id="5_6l87e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
+bg_color = Color(0.5729883, 0.5729882, 0.57298845, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="2DMatrixMath" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1110.0
+offset_bottom = 437.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+script = ExtResource("1_6y8cj")
+reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
+calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
+extras_button = NodePath("PanelBackground/ToolButtons/Control3/Extras")
+splash_text = NodePath("PanelBackground/SplashText")
+splash_text_timer = NodePath("PanelBackground/SplashText/SplashTextTimer")
+
+[node name="PanelBackground" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1110.0
+offset_bottom = 437.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6np1")
+
+[node name="Math" type="FlowContainer" parent="PanelBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.026
+anchor_right = 0.017
+anchor_bottom = 0.026
+offset_left = -0.020004272
+offset_top = 40.039997
+offset_right = 957.98
+offset_bottom = 423.25134
+scale = Vector2(0.8104276, 0.8104276)
+mouse_filter = 2
+theme_override_constants/v_separation = -126
+vertical = true
+
+[node name="UserInputContainer" type="HBoxContainer" parent="PanelBackground/Math"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 479
+alignment = 1
+
+[node name="A_MatrixContainer" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_right = 39.5625
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A=|
+	|
+	|"
+horizontal_alignment = 2
+
+[node name="InputField (A00)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 45.530296
+offset_top = 3.5508482
+offset_right = 170.04114
+offset_bottom = 34.55085
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A00"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A01)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 181.02321
+offset_top = 3.5508482
+offset_right = 304.8357
+offset_bottom = 34.55085
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A01"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A02)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 314.18005
+offset_top = 3.5508487
+offset_right = 437.61755
+offset_bottom = 34.55085
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A02"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A10)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 45.53029
+offset_top = 43.26429
+offset_right = 170.96777
+offset_bottom = 74.26429
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A10"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A11)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 181.02322
+offset_top = 43.26429
+offset_right = 304.46072
+offset_bottom = 74.26429
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A11"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A12)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 314.18005
+offset_top = 43.26429
+offset_right = 439.61755
+offset_bottom = 74.26429
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A12"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A20)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 45.53029
+offset_top = 80.64165
+offset_right = 170.96777
+offset_bottom = 111.64165
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A20"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A21)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 181.02322
+offset_top = 80.64165
+offset_right = 304.46072
+offset_bottom = 111.64165
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A21"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (A22)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 314.18005
+offset_top = 80.64165
+offset_right = 439.61755
+offset_bottom = 111.64165
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "A22"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/A_MatrixContainer"]
+layout_mode = 1
+offset_left = 445.0008
+offset_top = 1.2147652
+offset_right = 458.0008
+offset_bottom = 109.21477
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+
+[node name="B_MatrixContainer" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_right = 39.5625
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B=|
+	|
+	|"
+horizontal_alignment = 2
+
+[node name="InputField (B00)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 45.530296
+offset_top = 3.5508482
+offset_right = 170.04114
+offset_bottom = 34.55085
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B00"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B01)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 181.02321
+offset_top = 3.5508482
+offset_right = 304.8357
+offset_bottom = 34.55085
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B01"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B02)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 314.18005
+offset_top = 3.5508487
+offset_right = 437.61755
+offset_bottom = 34.55085
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B02"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B10)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 45.53029
+offset_top = 43.26429
+offset_right = 170.96777
+offset_bottom = 74.26429
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B10"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B11)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 181.02322
+offset_top = 43.26429
+offset_right = 304.46072
+offset_bottom = 74.26429
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B11"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B12)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 314.18005
+offset_top = 43.26429
+offset_right = 439.61755
+offset_bottom = 74.26429
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B12"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B20)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 45.53029
+offset_top = 80.64165
+offset_right = 170.96777
+offset_bottom = 111.64165
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B20"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B21)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 181.02322
+offset_top = 80.64165
+offset_right = 304.46072
+offset_bottom = 111.64165
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B21"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (B22)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 314.18005
+offset_top = 80.64165
+offset_right = 439.61755
+offset_bottom = 111.64165
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "B22"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/B_MatrixContainer"]
+layout_mode = 1
+offset_left = 445.0008
+offset_top = 1.2147652
+offset_right = 458.0008
+offset_bottom = 109.21477
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+
+[node name="S_Container" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/S_Container"]
+layout_mode = 0
+offset_right = 38.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+tooltip_text = "Scalar
+A*s, B*s
+A static value that is multiplied by each component of the A vector and the B vector."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "s=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InputField (S)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/S_Container"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 5.0
+offset_right = 167.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "1"
+alignment = 1
+script = ExtResource("2_2x0eg")
+id = "S"
+default_string = "1"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/S_Container"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 1.0
+offset_right = 189.0
+offset_bottom = 37.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="Calculations" type="Control" parent="PanelBackground/Math"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="s * A" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 306.1964
+offset_bottom = 145.43344
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelTop" type="Label" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "s * A"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 1
+offset_left = 0.112132855
+offset_top = 32.196075
+offset_right = 13.112133
+offset_bottom = 103.196075
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 13.073
+offset_top = 40.0
+offset_right = 98.073
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A00\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 193.99998
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A01\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 205.015
+offset_top = 40.0
+offset_right = 290.01498
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A02\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 13.758173
+offset_top = 76.33411
+offset_right = 97.75817
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A10\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 76.33411
+offset_right = 195.00366
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A11\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 76.33411
+offset_right = 290.1555
+offset_bottom = 102.24634
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A12\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 13.758174
+offset_top = 113.3516
+offset_right = 97.6645
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A20\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 113.3516
+offset_right = 194.00366
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A21\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 113.3516
+offset_right = 290.1555
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"A22\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/s * A"]
+layout_mode = 0
+offset_left = 292.6233
+offset_top = 31.91311
+offset_right = 305.6233
+offset_bottom = 139.91312
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+vertical_alignment = 1
+
+[node name="s * B" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 328.40686
+offset_top = -0.16871835
+offset_right = 634.6033
+offset_bottom = 145.26472
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelTop" type="Label" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "s * B"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 1
+offset_left = 0.112132855
+offset_top = 32.196075
+offset_right = 13.112133
+offset_bottom = 103.196075
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 13.073
+offset_top = 40.0
+offset_right = 98.073
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B00\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 193.99998
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B01\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 205.015
+offset_top = 40.0
+offset_right = 290.01498
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B02\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 13.758173
+offset_top = 76.33411
+offset_right = 97.75817
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B10\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 76.33411
+offset_right = 195.00366
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B11\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 76.33411
+offset_right = 290.1555
+offset_bottom = 102.24634
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B12\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 13.758174
+offset_top = 113.3516
+offset_right = 97.6645
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B20\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 113.3516
+offset_right = 194.00366
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B21\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 113.3516
+offset_right = 290.1555
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "float(field[\"B22\"].text) * float(field[\"S\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/s * B"]
+layout_mode = 0
+offset_left = 292.6233
+offset_top = 31.91311
+offset_right = 305.6233
+offset_bottom = 139.91312
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+vertical_alignment = 1
+
+[node name="A x B" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 650.4591
+offset_top = -1.4026349
+offset_right = 956.6555
+offset_bottom = 144.0308
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelTop" type="Label" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A x B"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 1
+offset_left = 0.112132855
+offset_top = 32.196075
+offset_right = 13.112133
+offset_bottom = 103.196075
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 13.073
+offset_top = 40.0
+offset_right = 98.073
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A00\"].text) * float(field[\"B00\"].text)) + (float(field[\"A01\"].text) * float(field[\"B10\"].text)) + (float(field[\"A02\"].text) * float(field[\"B20\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 193.99998
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A00\"].text) * float(field[\"B01\"].text)) + (float(field[\"A01\"].text) * float(field[\"B11\"].text)) + (float(field[\"A02\"].text) * float(field[\"B21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 205.015
+offset_top = 40.0
+offset_right = 290.01498
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A00\"].text) * float(field[\"B02\"].text)) + (float(field[\"A01\"].text) * float(field[\"B12\"].text)) + (float(field[\"A02\"].text) * float(field[\"B22\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 13.758173
+offset_top = 76.33411
+offset_right = 97.75817
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A10\"].text) * float(field[\"B00\"].text)) + (float(field[\"A11\"].text) * float(field[\"B10\"].text)) + (float(field[\"A12\"].text) * float(field[\"B20\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 76.33411
+offset_right = 195.00366
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A10\"].text) * float(field[\"B01\"].text)) + (float(field[\"A11\"].text) * float(field[\"B11\"].text)) + (float(field[\"A12\"].text) * float(field[\"B21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 76.33411
+offset_right = 290.1555
+offset_bottom = 102.24634
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A10\"].text) * float(field[\"B02\"].text)) + (float(field[\"A11\"].text) * float(field[\"B12\"].text)) + (float(field[\"A12\"].text) * float(field[\"B22\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 13.758174
+offset_top = 113.3516
+offset_right = 97.6645
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A20\"].text) * float(field[\"B00\"].text)) + (float(field[\"A21\"].text) * float(field[\"B10\"].text)) + (float(field[\"A22\"].text) * float(field[\"B20\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 113.3516
+offset_right = 194.00366
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A20\"].text) * float(field[\"B01\"].text)) + (float(field[\"A21\"].text) * float(field[\"B11\"].text)) + (float(field[\"A22\"].text) * float(field[\"B21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 113.3516
+offset_right = 290.1555
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A20\"].text) * float(field[\"B02\"].text)) + (float(field[\"A21\"].text) * float(field[\"B12\"].text)) + (float(field[\"A22\"].text) * float(field[\"B22\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A x B"]
+layout_mode = 0
+offset_left = 292.6233
+offset_top = 31.91311
+offset_right = 305.6233
+offset_bottom = 139.91312
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+vertical_alignment = 1
+
+[node name="B x A" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 970.0435
+offset_top = -0.16871835
+offset_right = 1276.24
+offset_bottom = 145.26472
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelTop" type="Label" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B x A"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 1
+offset_left = 0.112132855
+offset_top = 32.196075
+offset_right = 13.112133
+offset_bottom = 103.196075
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 13.073
+offset_top = 40.0
+offset_right = 98.073
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B00\"].text) * float(field[\"A00\"].text)) + (float(field[\"B01\"].text) * float(field[\"A10\"].text)) + (float(field[\"B02\"].text) * float(field[\"A20\"].text))
+"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 193.99998
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B00\"].text) * float(field[\"A01\"].text)) + (float(field[\"B01\"].text) * float(field[\"A11\"].text)) + (float(field[\"B02\"].text) * float(field[\"A21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 205.015
+offset_top = 40.0
+offset_right = 290.01498
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B00\"].text) * float(field[\"A02\"].text)) + (float(field[\"B01\"].text) * float(field[\"A12\"].text)) + (float(field[\"B02\"].text) * float(field[\"A22\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 13.758173
+offset_top = 76.33411
+offset_right = 97.75817
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B10\"].text) * float(field[\"A00\"].text)) + (float(field[\"B11\"].text) * float(field[\"A10\"].text)) + (float(field[\"B12\"].text) * float(field[\"A20\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 76.33411
+offset_right = 195.00366
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B10\"].text) * float(field[\"A01\"].text)) + (float(field[\"B11\"].text) * float(field[\"A11\"].text)) + (float(field[\"B12\"].text) * float(field[\"A21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 76.33411
+offset_right = 290.1555
+offset_bottom = 102.24634
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B10\"].text) * float(field[\"A02\"].text)) + (float(field[\"B11\"].text) * float(field[\"A12\"].text)) + (float(field[\"B12\"].text) * float(field[\"A22\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 13.758174
+offset_top = 113.3516
+offset_right = 97.6645
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B20\"].text) * float(field[\"A00\"].text)) + (float(field[\"B21\"].text) * float(field[\"A10\"].text)) + (float(field[\"B22\"].text) * float(field[\"A20\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 113.3516
+offset_right = 194.00366
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B20\"].text) * float(field[\"A01\"].text)) + (float(field[\"B21\"].text) * float(field[\"A11\"].text)) + (float(field[\"B22\"].text) * float(field[\"A21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 113.3516
+offset_right = 290.1555
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B20\"].text) * float(field[\"A02\"].text)) + (float(field[\"B21\"].text) * float(field[\"A12\"].text)) + (float(field[\"B22\"].text) * float(field[\"A22\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B x A"]
+layout_mode = 0
+offset_left = 292.6233
+offset_top = 31.91311
+offset_right = 305.6233
+offset_bottom = 139.91312
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+vertical_alignment = 1
+
+[node name="A^-1" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 328.40686
+offset_top = 139.26385
+offset_right = 634.6033
+offset_bottom = 284.6973
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelTop" type="Label" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A ^ -1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 1
+offset_left = 0.112132855
+offset_top = 32.196075
+offset_right = 13.112133
+offset_bottom = 103.196075
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 13.073
+offset_top = 40.0
+offset_right = 98.073
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 193.99998
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 205.015
+offset_top = 40.0
+offset_right = 290.01498
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 13.758173
+offset_top = 76.33411
+offset_right = 97.75817
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 76.33411
+offset_right = 195.00366
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 76.33411
+offset_right = 290.1555
+offset_bottom = 102.24634
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 13.758174
+offset_top = 113.3516
+offset_right = 97.6645
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 113.3516
+offset_right = 194.00366
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 113.3516
+offset_right = 290.1555
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A^-1"]
+layout_mode = 0
+offset_left = 292.6233
+offset_top = 31.91311
+offset_right = 305.6233
+offset_bottom = 139.91312
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+vertical_alignment = 1
+
+[node name="B^-1" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 970.0435
+offset_top = 136.79602
+offset_right = 1276.24
+offset_bottom = 282.22946
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelTop" type="Label" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.5
+offset_right = 26.5
+offset_bottom = 34.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B  ^ -1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 1
+offset_left = 0.112132855
+offset_top = 32.196075
+offset_right = 13.112133
+offset_bottom = 103.196075
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 13.073
+offset_top = 40.0
+offset_right = 98.073
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 193.99998
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 205.015
+offset_top = 40.0
+offset_right = 290.01498
+offset_bottom = 65.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 13.758173
+offset_top = 76.33411
+offset_right = 97.75817
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 76.33411
+offset_right = 195.00366
+offset_bottom = 101.33411
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 76.33411
+offset_right = 290.1555
+offset_bottom = 102.24634
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 13.758174
+offset_top = 113.3516
+offset_right = 97.6645
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 110.00366
+offset_top = 113.3516
+offset_right = 194.00366
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 205.01523
+offset_top = 113.3516
+offset_right = 290.1555
+offset_bottom = 138.3516
+mouse_filter = 1
+text_overrun_behavior = 3
+clip_text = true
+script = ExtResource("3_vg01k")
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B^-1"]
+layout_mode = 0
+offset_left = 292.6233
+offset_top = 31.91311
+offset_right = 305.6233
+offset_bottom = 139.91312
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|
+|"
+vertical_alignment = 1
+
+[node name="det(A)" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 118.641075
+offset_top = 168.87782
+offset_right = 325.38458
+offset_bottom = 210.92735
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/det(A)"]
+layout_mode = 1
+offset_top = 2.3360653
+offset_right = 91.0
+offset_bottom = 36.336067
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "det(A)=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/det(A)"]
+layout_mode = 0
+offset_left = 95.66734
+offset_top = 9.853437
+offset_right = 180.66736
+offset_bottom = 34.85343
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/det(A)"]
+layout_mode = 0
+offset_left = 186.77463
+offset_top = 2.8451786
+offset_right = 197.06274
+offset_bottom = 36.845177
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="det(B)" type="Control" parent="PanelBackground/Math/Calculations"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 760.2777
+offset_top = 167.64394
+offset_right = 967.0212
+offset_bottom = 209.69347
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/det(B)"]
+layout_mode = 1
+offset_top = 2.3360653
+offset_right = 91.0
+offset_bottom = 36.336067
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "det(B)=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/det(B)"]
+layout_mode = 0
+offset_left = 95.66734
+offset_top = 9.853437
+offset_right = 180.66736
+offset_bottom = 34.85343
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_vg01k")
+expression_text = "(float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/det(B)"]
+layout_mode = 0
+offset_left = 186.77463
+offset_top = 2.8451786
+offset_right = 197.06274
+offset_bottom = 36.845177
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "]"
+vertical_alignment = 1
+
+[node name="ToolButtons" type="VBoxContainer" parent="PanelBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.026
+anchor_right = 0.017
+anchor_bottom = 0.026
+offset_left = 947.416
+offset_top = 43.638
+offset_right = 1064.416
+offset_bottom = 249.638
+mouse_filter = 2
+theme_override_constants/separation = 34
+
+[node name="Control" type="Control" parent="PanelBackground/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Calculate" type="Button" parent="PanelBackground/ToolButtons/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 1
+text = "Calculate"
+
+[node name="Control2" type="Control" parent="PanelBackground/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Reset" type="Button" parent="PanelBackground/ToolButtons/Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 1
+text = "Reset
+"
+
+[node name="Control3" type="Control" parent="PanelBackground/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Extras" type="CheckButton" parent="PanelBackground/ToolButtons/Control3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+tooltip_text = "Adds extra calculations not included in the original physics calculator.
+WARNING: It's recommended you keep this off during tests, as the extra options are experimental and prone to change."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+text = "Extras"
+
+[node name="SplashText" type="RichTextLabel" parent="PanelBackground"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -41.0
+offset_right = 930.0
+offset_bottom = -13.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "This is splash text"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="SplashTextTimer" type="Timer" parent="PanelBackground/SplashText"]
+wait_time = 4.0
+one_shot = true
+
+[node name="PanelBar" parent="." instance=ExtResource("4_v14l8")]
+layout_mode = 0
+offset_right = 1110.0
+custom_icon = ExtResource("5_6l87e")
+custom_title = &"3 x 3 Matricies"
+clamp_panel_to_window_bounds = null
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+border_width = 1.5
+editor_only = false

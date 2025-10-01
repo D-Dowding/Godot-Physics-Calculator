@@ -10,12 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uey74")
-my_bounds = Rect2(0, 0, 1152, 648)
-child_next_rect = Rect2(201, 0, 951, 137)
-my_end = Vector2(1152, 648)
-child_end = Vector2(1152, 137)
-my_pos = Vector2(0, 0)
-child_pos = Vector2(201, 0)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -24,10 +18,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -473.5
-offset_top = -68.5
-offset_right = 477.5
-offset_bottom = 68.5
+offset_left = -470.0
+offset_top = -67.0
+offset_right = 481.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0

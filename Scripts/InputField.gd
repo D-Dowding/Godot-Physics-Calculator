@@ -13,6 +13,8 @@ func _ready() -> void:
 	assert( id.trim_prefix(" ").trim_suffix(" ") != "", "ERROR: " + str(self) + " is missing an id! Please set one in the inspector!")
 	gui_input.connect(on_mouse_click.bind(self))
 	myPanelOwner.input_fields[id] = self
+	focus_exited.connect(on_field_exit)
+	focus_entered.connect(on_field_enter)
 
 func on_mouse_click(event : InputEvent, input_field : LineEdit):
 	if event is InputEventMouseButton and (event as InputEventMouseButton).is_pressed():
@@ -21,3 +23,13 @@ func on_mouse_click(event : InputEvent, input_field : LineEdit):
 		if myPanelOwner.errored_input_fields.has(input_field):
 			input_field.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			myPanelOwner.errored_input_fields.erase(input_field)
+
+func on_field_exit():
+	## Ensure text isn't blank if user isn't typing
+	if text.trim_prefix(" ").trim_suffix(" ").is_empty():
+		text = "0"
+		
+func on_field_enter():
+	## If text is 0, make blank
+	if text == "0":
+		text = ""

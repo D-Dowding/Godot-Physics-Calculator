@@ -2,6 +2,7 @@
 extends Control
 class_name CalculatorWindow
 
+## Draw a red rectangle around the bounds of the CalculatorPanel's Control node.
 @export var debug : bool = false
 # This is handled like this so as to avoid having to manually set an id for each panel 
 # and praying to god none of them are accidently duplicated.

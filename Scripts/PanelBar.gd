@@ -4,6 +4,7 @@ class_name PanelBar
 
 @export var custom_icon : Texture2D
 @export var custom_title : StringName
+@export var clamp_panel_to_window_bounds : bool = false
 
 var offset : Vector2
 var dragging : bool = false
@@ -41,10 +42,11 @@ func _process(delta: float) -> void:
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 			$PanelSplash.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 		## Clamp to window size
-		#if window.size > parent.size:
-			#parent.global_position = global_position.clamp(Vector2.ZERO, window.size - parent.size)
-		#else:
-			#parent.global_position = global_position.clamp(Vector2.ZERO, window.size - panel_title.size)
+		if clamp_panel_to_window_bounds:
+			if window.size > parent.size:
+				parent.global_position = global_position.clamp(Vector2.ZERO, window.size - parent.size)
+			else:
+				parent.global_position = global_position.clamp(Vector2.ZERO, window.size - panel_title.size)
 	
 func drag(event: InputEvent) -> void:
 	if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT and (event as InputEventMouseButton).is_pressed():
