@@ -39,6 +39,16 @@ func enable(message : String = expression_text):
 		push_warning(self, " message is blank, nothing can be read from this.")
 		return
 		
+	#var testa : Transform2D = Transform2D.IDENTITY
+	#var testb : Basis = Basis.IDENTITY
+	#var testc : Projection = Projection.IDENTITY
+	
+	if name == "Button" and $"..".name == "A^-1":
+		print_debug("testing")
+		print_debug(Basis(Vector3(3, 5, 1), Vector3(4, 7, 9), Vector3(8, 6, 2)).determinant())
+		print_debug(Transform2D(Vector2(3, 5), Vector2(4, 7), Vector2.ZERO).affine_inverse())
+	
+		
 	var error = expression.parse(message, ["field"])
 	if error != OK:
 		printerr(expression.get_error_text())
@@ -49,6 +59,9 @@ func enable(message : String = expression_text):
 	if expression.has_execute_failed():
 		push_error(expression.get_error_text())
 		return
+	
+	if is_nan(float(result)):
+		myPanelOwner.render_splash_text("Error in fields caused NaN value", Color.LIGHT_CORAL, myPanelOwner.DEFAULT_HIGHLIGHT_TIME)
 	
 	## NOTE: Result should be a float
 	text = "%.4f" % result

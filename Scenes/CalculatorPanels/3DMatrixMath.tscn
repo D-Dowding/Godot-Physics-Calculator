@@ -1210,6 +1210,7 @@ offset_bottom = 65.0
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A11\"].text) * float(field[\"A22\"].text) - float(field[\"A12\"].text) * float(field[\"A21\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1221,6 +1222,7 @@ offset_bottom = 65.0
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A02\"].text) * float(field[\"A21\"].text) - float(field[\"A01\"].text) * float(field[\"A22\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1232,6 +1234,7 @@ offset_bottom = 65.0
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A01\"].text) * float(field[\"A12\"].text) - float(field[\"A02\"].text) * float(field[\"A11\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1243,6 +1246,7 @@ offset_bottom = 101.33411
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A12\"].text) * float(field[\"A20\"].text) - float(field[\"A10\"].text) * float(field[\"A22\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1254,6 +1258,7 @@ offset_bottom = 101.33411
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A00\"].text) * float(field[\"A22\"].text) - float(field[\"A02\"].text) * float(field[\"A20\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1265,6 +1270,7 @@ offset_bottom = 102.24634
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A02\"].text) * float(field[\"A10\"].text) - float(field[\"A00\"].text) * float(field[\"A12\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1276,6 +1282,7 @@ offset_bottom = 138.3516
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A10\"].text) * float(field[\"A21\"].text) - float(field[\"A11\"].text) * float(field[\"A20\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1287,6 +1294,7 @@ offset_bottom = 138.3516
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A01\"].text) * float(field[\"A20\"].text) - float(field[\"A00\"].text) * float(field[\"A21\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1298,6 +1306,7 @@ offset_bottom = 138.3516
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text) * float(field[\"A22\"].text)) + (float(field[\"A01\"].text) * float(field[\"A12\"].text) * float(field[\"A20\"].text)) + (float(field[\"A02\"].text) * float(field[\"A10\"].text) * float(field[\"A21\"].text)) - (float(field[\"A02\"].text) * float(field[\"A11\"].text) * float(field[\"A20\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text) * float(field[\"A22\"].text)) - (float(field[\"A00\"].text) * float(field[\"A12\"].text) * float(field[\"A21\"].text))) * (float(field[\"A00\"].text) * float(field[\"A11\"].text) - float(field[\"A01\"].text) * float(field[\"A10\"].text))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -1371,6 +1380,8 @@ offset_bottom = 65.0
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B11\"].text) * float(field[\"B22\"].text) - float(field[\"B12\"].text) * float(field[\"B21\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1382,6 +1393,8 @@ offset_bottom = 65.0
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B02\"].text) * float(field[\"B21\"].text) - float(field[\"B01\"].text) * float(field[\"B22\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1393,6 +1406,8 @@ offset_bottom = 65.0
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B01\"].text) * float(field[\"B12\"].text) - float(field[\"B02\"].text) * float(field[\"B11\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1404,6 +1419,8 @@ offset_bottom = 101.33411
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B12\"].text) * float(field[\"B20\"].text) - float(field[\"B10\"].text) * float(field[\"B22\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button5" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1415,6 +1432,8 @@ offset_bottom = 101.33411
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B00\"].text) * float(field[\"B22\"].text) - float(field[\"B02\"].text) * float(field[\"B20\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button6" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1426,6 +1445,8 @@ offset_bottom = 102.24634
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B02\"].text) * float(field[\"B10\"].text) - float(field[\"B00\"].text) * float(field[\"B12\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button7" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1437,6 +1458,8 @@ offset_bottom = 138.3516
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B10\"].text) * float(field[\"B21\"].text) - float(field[\"B11\"].text) * float(field[\"B20\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button8" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1448,6 +1471,8 @@ offset_bottom = 138.3516
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B01\"].text) * float(field[\"B20\"].text) - float(field[\"B00\"].text) * float(field[\"B21\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button9" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1460,6 +1485,8 @@ mouse_filter = 1
 text_overrun_behavior = 3
 clip_text = true
 script = ExtResource("3_vg01k")
+expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text) * float(field[\"B22\"].text)) + (float(field[\"B01\"].text) * float(field[\"B12\"].text) * float(field[\"B20\"].text)) + (float(field[\"B02\"].text) * float(field[\"B10\"].text) * float(field[\"B21\"].text)) - (float(field[\"B02\"].text) * float(field[\"B11\"].text) * float(field[\"B20\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text) * float(field[\"B22\"].text)) - (float(field[\"B00\"].text) * float(field[\"B12\"].text) * float(field[\"B21\"].text))) * (float(field[\"B00\"].text) * float(field[\"B11\"].text) - float(field[\"B01\"].text) * float(field[\"B10\"].text))
+"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -1685,7 +1712,6 @@ layout_mode = 0
 offset_right = 1110.0
 custom_icon = ExtResource("5_6l87e")
 custom_title = &"3 x 3 Matricies"
-clamp_panel_to_window_bounds = null
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false
