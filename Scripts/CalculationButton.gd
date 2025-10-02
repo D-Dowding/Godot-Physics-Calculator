@@ -45,11 +45,14 @@ func enable(message : String = expression_text):
 	
 	if name == "Button" and $"..".name == "A^-1":
 		print_debug("testing")
-		print_debug(Basis(Vector3(3, 5, 1), Vector3(4, 7, 9), Vector3(8, 6, 2)).determinant())
-		print_debug(Transform2D(Vector2(3, 5), Vector2(4, 7), Vector2.ZERO).affine_inverse())
-	
+		print_debug(Basis(Vector3(4, 4, 1), Vector3(4, 7, 9), Vector3(8, 6, 2)).inverse())
+		print_debug(Transform2D(Vector2(3, 5), Vector2(4, 7), Vector2.ZERO).determinant())
+		print_debug(Transform2D(Vector2(float(myPanelOwner.input_fields["A00"].text), float(myPanelOwner.input_fields["A01"].text)), Vector2(float(myPanelOwner.input_fields["A10"].text), float(myPanelOwner.input_fields["A11"].text)), Vector2.ZERO).affine_inverse().x.y)
+		print_debug(float(1) / ((float(myPanelOwner.input_fields["A00"].text) * float(myPanelOwner.input_fields["A11"].text)) - (float(myPanelOwner.input_fields["A01"].text) * float(myPanelOwner.input_fields["A10"].text))) * -float(myPanelOwner.input_fields["A01"].text))
+		print_debug(Basis(Vector3(4, 4, 1), Vector3(4, 7, 9), Vector3(8, 6, 2)) * Basis(Vector3(3, 5, 5), Vector3(3, 2, 7), Vector3(8, 9, 1)))
 		
-	var error = expression.parse(message, ["field"])
+		
+	var error : Error = expression.parse(message, ["field"])
 	if error != OK:
 		printerr(expression.get_error_text())
 		push_error(expression.get_error_text(), ", ", error)
@@ -57,6 +60,7 @@ func enable(message : String = expression_text):
 		
 	var result = expression.execute([myPanelOwner.input_fields], self)
 	if expression.has_execute_failed():
+		printerr(expression.get_error_text())
 		push_error(expression.get_error_text())
 		return
 	

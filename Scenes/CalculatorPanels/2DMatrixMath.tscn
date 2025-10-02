@@ -570,7 +570,7 @@ offset_bottom = 64.71345
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"A00\"].text) * float(field[\"B00\"].text)) + (float(field[\"A01\"].text) * float(field[\"B10\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0))).x.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
@@ -582,7 +582,7 @@ offset_bottom = 64.71345
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"A00\"].text) * float(field[\"B01\"].text)) + (float(field[\"A01\"].text) * float(field[\"B11\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0))).x.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
@@ -594,7 +594,7 @@ offset_bottom = 102.44014
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"A10\"].text) * float(field[\"B00\"].text)) + (float(field[\"A11\"].text) * float(field[\"B10\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0))).y.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/A x B"]
@@ -606,7 +606,7 @@ offset_bottom = 102.44014
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"A10\"].text) * float(field[\"B01\"].text)) + (float(field[\"A11\"].text) * float(field[\"B11\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0))).y.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A x B"]
@@ -674,7 +674,7 @@ offset_bottom = 64.71344
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"B00\"].text) * float(field[\"A00\"].text)) + (float(field[\"B01\"].text) * float(field[\"A10\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0))).x.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
@@ -686,7 +686,7 @@ offset_bottom = 64.71344
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"B00\"].text) * float(field[\"A01\"].text)) + (float(field[\"B01\"].text) * float(field[\"A11\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0))).x.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
@@ -698,7 +698,7 @@ offset_bottom = 102.440155
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"B10\"].text) * float(field[\"A00\"].text)) + (float(field[\"B11\"].text) * float(field[\"A10\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0))).y.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/B x A"]
@@ -710,7 +710,7 @@ offset_bottom = 102.440155
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"B10\"].text) * float(field[\"A01\"].text)) + (float(field[\"B11\"].text) * float(field[\"A11\"].text))"
+expression_text = "(Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)) * Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0))).y.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B x A"]
@@ -778,7 +778,7 @@ offset_bottom = 64.71345
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text))) * float(field[\"A11\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)).affine_inverse().x.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -790,7 +790,7 @@ offset_bottom = 64.71345
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text))) * -float(field[\"A01\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)).affine_inverse().x.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -802,7 +802,7 @@ offset_bottom = 102.44014
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text))) * -float(field[\"A10\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)).affine_inverse().y.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -814,7 +814,7 @@ offset_bottom = 102.44014
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"A00\"].text) * float(field[\"A11\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text))) * float(field[\"A00\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)).affine_inverse().y.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A^-1"]
@@ -882,7 +882,7 @@ offset_bottom = 64.71345
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text))) * float(field[\"B11\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)).affine_inverse().x.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button2" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -894,7 +894,7 @@ offset_bottom = 64.71345
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text))) * -float(field[\"B01\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)).affine_inverse().x.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button3" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -906,7 +906,7 @@ offset_bottom = 102.44014
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text))) * -float(field[\"B10\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)).affine_inverse().y.x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button4" type="Button" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -918,7 +918,7 @@ offset_bottom = 102.44014
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "float(1) / ((float(field[\"B00\"].text) * float(field[\"B11\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text))) * float(field[\"B00\"].text)"
+expression_text = "Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)).affine_inverse().y.y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B^-1"]
@@ -970,7 +970,7 @@ offset_bottom = 34.85343
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"A00\"].text) * float(field[\"A11\"].text)) - (float(field[\"A01\"].text) * float(field[\"A10\"].text))"
+expression_text = "Transform2D(Vector2(float(field[\"A00\"].text), float(field[\"A01\"].text)), Vector2(float(field[\"A10\"].text), float(field[\"A11\"].text)), Vector2(0, 0)).determinant()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/det(A)"]
@@ -1021,7 +1021,7 @@ offset_bottom = 34.85343
 mouse_filter = 1
 text_overrun_behavior = 3
 script = ExtResource("3_qjlmk")
-expression_text = "(float(field[\"B00\"].text) * float(field[\"B11\"].text)) - (float(field[\"B01\"].text) * float(field[\"B10\"].text))"
+expression_text = "Transform2D(Vector2(float(field[\"B00\"].text), float(field[\"B01\"].text)), Vector2(float(field[\"B10\"].text), float(field[\"B11\"].text)), Vector2(0, 0)).determinant()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/det(B)"]
