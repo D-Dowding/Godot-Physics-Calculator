@@ -10,7 +10,7 @@ class_name InputField
 @export var default_string : String
 
 func _ready() -> void:
-	assert( id.trim_prefix(" ").trim_suffix(" ") != "", "ERROR: " + str(self) + " is missing an id! Please set one in the inspector!")
+	assert( !id.replace(" ","").is_empty(), "ERROR: " + str(self) + " is missing an id! Please set one in the inspector!")
 	gui_input.connect(on_mouse_click.bind(self))
 	myPanelOwner.input_fields[id] = self
 	focus_exited.connect(on_field_exit)
@@ -26,7 +26,7 @@ func on_mouse_click(event : InputEvent, input_field : LineEdit):
 
 func on_field_exit():
 	## Ensure text isn't blank if user isn't typing
-	if text.trim_prefix(" ").trim_suffix(" ").is_empty():
+	if text.replace(" ", "").is_empty():
 		text = "0"
 		
 func on_field_enter():

@@ -35,7 +35,7 @@ func disable():
 	disabled = true
 	
 func enable(message : String = expression_text):
-	if message.trim_prefix(" ").trim_suffix(" ") == "":
+	if message.replace(" ", "").is_empty():
 		push_warning(self, " message is blank, nothing can be read from this.")
 		return
 		
