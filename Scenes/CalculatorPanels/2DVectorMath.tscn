@@ -63,7 +63,7 @@ offset_right = 916.00073
 offset_bottom = 331.0
 scale = Vector2(0.8504399, 0.8504399)
 mouse_filter = 2
-theme_override_constants/v_separation = 19
+theme_override_constants/v_separation = -186
 vertical = true
 
 [node name="UserInputContainer" type="HBoxContainer" parent="PanelBackground/Math"]
@@ -249,16 +249,13 @@ theme_override_font_sizes/font_size = 24
 text = "]"
 vertical_alignment = 1
 
-[node name="Calculations" type="GridContainer" parent="PanelBackground/Math"]
+[node name="Calculations" type="Control" parent="PanelBackground/Math"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/h_separation = 299
-theme_override_constants/v_separation = 39
-columns = 3
 
 [node name="A+B" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -314,7 +311,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="A-B" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 0.34335327
+offset_top = 38.630234
+offset_right = 0.34335327
+offset_bottom = 38.630234
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -370,7 +371,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="B-A" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 280.1985
+offset_top = -0.17321396
+offset_right = 280.1985
+offset_bottom = -0.17321396
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -426,7 +431,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="A∘B" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 0.34334967
+offset_top = 106.83023
+offset_right = 0.34334967
+offset_bottom = 106.83023
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -474,7 +483,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="||A||" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = -9.063545
+offset_top = 72.730225
+offset_right = -9.063545
+offset_bottom = 72.730225
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -523,7 +536,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="||B||" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 271.96747
+offset_top = 33.926777
+offset_right = 271.96747
+offset_bottom = 33.926777
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -572,7 +589,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="θDegrees" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 311.94675
+offset_top = 68.02678
+offset_right = 311.94675
+offset_bottom = 68.02678
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -620,7 +641,11 @@ text = "] degrees"
 vertical_alignment = 1
 
 [node name="θRadians" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 311.94675
+offset_top = 104.4785
+offset_right = 311.94675
+offset_bottom = 104.4785
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -668,196 +693,12 @@ theme_override_font_sizes/font_size = 24
 text = "] radians"
 vertical_alignment = 1
 
-[node name="A∠Radians" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-
-[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∠Radians"]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-tooltip_text = "Angle (Radians)
-The angle of the vector in radians."
-mouse_filter = 1
-mouse_default_cursor_shape = 16
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "A∠=["
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∠Radians"]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 6.0
-offset_right = 144.0
-offset_bottom = 33.0
-mouse_filter = 1
-text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
-expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle()"
-metadata/_custom_type_script = "uid://c0t512awy5gae"
-
-[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∠Radians"]
-layout_mode = 0
-offset_left = 149.0
-offset_right = 255.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "] radians"
-vertical_alignment = 1
-
-[node name="B∠Radians" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-
-[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B∠Radians"]
-layout_mode = 0
-offset_right = 28.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-tooltip_text = "Angle (Radians)
-The angle of the vector in radians."
-mouse_filter = 1
-mouse_default_cursor_shape = 16
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "B∠=["
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B∠Radians"]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 6.0
-offset_right = 143.0
-offset_bottom = 33.0
-mouse_filter = 1
-text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
-expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle()"
-metadata/_custom_type_script = "uid://c0t512awy5gae"
-
-[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B∠Radians"]
-layout_mode = 0
-offset_left = 148.0
-offset_right = 249.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "] radians"
-vertical_alignment = 1
-
-[node name="A∠Degrees" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-
-[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∠Degrees"]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-tooltip_text = "Angle (Degrees)
-The angle of the vector in degrees."
-mouse_filter = 1
-mouse_default_cursor_shape = 16
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "A∠=["
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∠Degrees"]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 6.0
-offset_right = 144.0
-offset_bottom = 33.0
-mouse_filter = 1
-text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
-expression_text = "rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle())"
-metadata/_custom_type_script = "uid://c0t512awy5gae"
-
-[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∠Degrees"]
-layout_mode = 0
-offset_left = 149.0
-offset_right = 255.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "] degrees"
-vertical_alignment = 1
-
-[node name="B∠Degrees" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-
-[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B∠Degrees"]
-layout_mode = 0
-offset_right = 28.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-tooltip_text = "Angle (Degrees)
-The angle of the vector in degrees."
-mouse_filter = 1
-mouse_default_cursor_shape = 16
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "B∠=["
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B∠Degrees"]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 6.0
-offset_right = 143.0
-offset_bottom = 33.0
-mouse_filter = 1
-text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
-expression_text = "rad_to_deg(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle())"
-metadata/_custom_type_script = "uid://c0t512awy5gae"
-
-[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B∠Degrees"]
-layout_mode = 0
-offset_left = 148.0
-offset_right = 249.0
-offset_bottom = 34.0
-size_flags_horizontal = 3
-mouse_filter = 1
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 24
-text = "] degrees"
-vertical_alignment = 1
-
 [node name="sA" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 568.2848
+offset_top = -0.17321396
+offset_right = 568.2848
+offset_bottom = -0.17321396
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -917,7 +758,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="sB" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 568.2847
+offset_top = 33.926785
+offset_right = 568.2847
+offset_bottom = 33.926785
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -977,7 +822,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="|A|" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 568.2848
+offset_top = 68.02678
+offset_right = 568.2848
+offset_bottom = 68.02678
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -1037,7 +886,11 @@ text = "]"
 vertical_alignment = 1
 
 [node name="|B|" type="Control" parent="PanelBackground/Math/Calculations"]
-layout_mode = 2
+anchors_preset = 0
+offset_left = 568.2848
+offset_top = 104.4785
+offset_right = 568.2848
+offset_bottom = 104.4785
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -1094,6 +947,210 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "]"
+vertical_alignment = 1
+
+[node name="A∠Radians" type="Control" parent="PanelBackground/Math/Calculations"]
+anchors_preset = 0
+offset_left = 13.277835
+offset_top = 138.5785
+offset_right = 13.277835
+offset_bottom = 138.5785
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∠Radians"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Radians)
+The angle of the vector in radians."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∠Radians"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 33.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle()"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∠Radians"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 255.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] radians"
+vertical_alignment = 1
+
+[node name="B∠Radians" type="Control" parent="PanelBackground/Math/Calculations"]
+anchors_preset = 0
+offset_left = 295.48474
+offset_top = 138.5785
+offset_right = 295.48474
+offset_bottom = 138.5785
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B∠Radians"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Radians)
+The angle of the vector in radians."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B∠Radians"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 33.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_o6np1")
+expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle()"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B∠Radians"]
+layout_mode = 0
+offset_left = 148.0
+offset_right = 249.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] radians"
+vertical_alignment = 1
+
+[node name="A∠Degrees" type="Control" parent="PanelBackground/Math/Calculations"]
+anchors_preset = 0
+offset_left = 13.277833
+offset_top = 171.50264
+offset_right = 13.277833
+offset_bottom = 171.50264
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/A∠Degrees"]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Degrees)
+The angle of the vector in degrees."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "A∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/A∠Degrees"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 144.0
+offset_bottom = 33.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_o6np1")
+expression_text = "rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle())"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/A∠Degrees"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 255.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] degrees"
+vertical_alignment = 1
+
+[node name="B∠Degrees" type="Control" parent="PanelBackground/Math/Calculations"]
+anchors_preset = 0
+offset_left = 295.48474
+offset_top = 171.50264
+offset_right = 295.48474
+offset_bottom = 171.50264
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/B∠Degrees"]
+layout_mode = 0
+offset_right = 28.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+tooltip_text = "Angle (Degrees)
+The angle of the vector in degrees."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "B∠=["
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelBackground/Math/Calculations/B∠Degrees"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 33.0
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_o6np1")
+expression_text = "rad_to_deg(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle())"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/B∠Degrees"]
+layout_mode = 0
+offset_left = 148.0
+offset_right = 249.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "] degrees"
 vertical_alignment = 1
 
 [node name="ToolButtons" type="VBoxContainer" parent="PanelBackground"]

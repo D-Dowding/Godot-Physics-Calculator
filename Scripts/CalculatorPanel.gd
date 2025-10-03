@@ -18,10 +18,12 @@ var errored_input_fields : Array[InputField]
 var input_fields: Dictionary[String, InputField]
 var buttons : Array[CalculationButton]
 const DEFAULT_ERROR_MESSAGE : String = "Found an error in an input field! Highlighting the problem..."
+const DEFAULT_ERROR_COLOR : Color = Color.LIGHT_CORAL
 const DEFAULT_HIGHLIGHT_TIME : float = 4.0
 const ERROR_HIGHLIGHT_RATE : float = 5.5
 const ERROR_COLOR_INTENSITY : float = 3.0
 var error_time_elapsed : float = -1
+var splash_text_queue : Array[SplashText]
 
 signal calculator_panel_closed(panel : CalculatorPanel)
 
@@ -29,19 +31,33 @@ func _ready() -> void:
 	reset_button.pressed.connect(reset_fields)
 	calculate_button.pressed.connect(calculate_fields)
 	extras_button.toggled.connect(toggle_extras)
-	splash_text_timer.timeout.connect(on_splash_text_timer_end)
 	toggle_extras(false)
-	disable_splash_text()
+	set_splash_text_visibility(false)
 
 func _physics_process(delta: float) -> void:
 	$ReferenceRect.visible = window.debug
 	if window.debug:
 		$ReferenceRect.size = size
 	
+	## Handle Splash text queue
+	if !splash_text_queue.is_empty():
+		set_splash_text_visibility(true)
+		splash_text.text = "(" + str(splash_text_queue.size()) + ") " + str(splash_text_queue[0].text)
+		splash_text.modulate = splash_text_queue[0].color
+		splash_text.modulate.a = clamp(splash_text_queue[0].time, 0, 1)
+		splash_text_queue[0].time -= delta
+		if splash_text_queue[0].time <= 0:
+			splash_text_queue.remove_at(0) 
+			## NOTE: This could be bad.
+			## This would be better off removing the last element so it doesn't have to adjust every element's index on removal.
+			## SplashText lists are typically small though, so it's not a huuuuuuge deal, but error lists could become much larger in the future.
+	else:
+		set_splash_text_visibility(false)
+	
+	## Highlight errored fields
 	if error_time_elapsed > 0:
 		error_time_elapsed -= delta
 		error_time_elapsed = clamp(error_time_elapsed, 0, DEFAULT_HIGHLIGHT_TIME)
-		## Highlight errored fields
 		for input_field in errored_input_fields:
 			input_field.modulate.r = ERROR_COLOR_INTENSITY * sin(ERROR_HIGHLIGHT_RATE * error_time_elapsed - PI/2) + ERROR_COLOR_INTENSITY + 1
 			input_field.modulate.b = 1
@@ -56,19 +72,27 @@ func toggle_extras(toggle : bool):
 	for calculation in extra_calculations:
 		calculation.visible = toggle
 			
-func render_splash_text(new_text : String, color : Color = Color.WHITE, time : float = -1):
-	splash_text.text = new_text
-	splash_text.modulate = color
-	splash_text.visible = true
-	if time != -1:
-		if splash_text_timer.time_left != DEFAULT_HIGHLIGHT_TIME:
-			splash_text_timer.start(DEFAULT_HIGHLIGHT_TIME)
+class SplashText:
+	var text : String
+	var color : Color
+	var time : float
+	var clear_queue : bool
+	func _init(new_text : String, new_color : Color = Color.WHITE, new_time : float = DEFAULT_HIGHLIGHT_TIME, do_clear_queue : bool = false) -> void:
+		text = new_text
+		color = new_color
+		time = new_time
+		clear_queue = do_clear_queue
+
+func queue_splash_text(splash_text_obj : SplashText):
+	if splash_text_obj.clear_queue:
+		splash_text_queue.clear()
+	for splash_text_element in splash_text_queue:
+		if splash_text_element.text == splash_text_obj.text:
+			return ## Don't allow two matching splash texts to exist
+	splash_text_queue.append(splash_text_obj)
 	
-func disable_splash_text():
-	splash_text.visible = false
-	
-func on_splash_text_timer_end():
-	disable_splash_text()
+func set_splash_text_visibility(visibility : bool):
+	splash_text.visible = visibility
 
 func highlight_input_field(input_field : LineEdit):
 	error_time_elapsed = DEFAULT_HIGHLIGHT_TIME
@@ -82,7 +106,7 @@ func calculate_fields():
 			highlight_input_field(input_field)
 			
 	if error_occured:
-		render_splash_text(DEFAULT_ERROR_MESSAGE, Color.LIGHT_CORAL, DEFAULT_HIGHLIGHT_TIME)
+		queue_splash_text(SplashText.new(DEFAULT_ERROR_MESSAGE, DEFAULT_ERROR_COLOR, DEFAULT_HIGHLIGHT_TIME, true))
 		return
 	
 	for button in buttons:
