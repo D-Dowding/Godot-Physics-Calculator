@@ -19,7 +19,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="2DMatrixMath" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+[node name="3DMatrixMath" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1110.0

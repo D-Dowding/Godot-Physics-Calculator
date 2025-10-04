@@ -9,6 +9,7 @@ class_name CalculationButton
 const DEFAULT_INVALID_TEXT : String = "INVALID"
 
 signal copied_to_clipboard(string : String)
+signal successfully_parsed_result(result : float)
 
 func _ready() -> void:
 	disable()
@@ -50,7 +51,7 @@ func enable(message : String = expression_text):
 		printerr(expression.get_error_text())
 		push_error(expression.get_error_text())
 		return
-	
+		
 	if is_nan(float(result)):
 		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Error in fields caused NaN value", myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
 	
@@ -64,3 +65,4 @@ func enable(message : String = expression_text):
 	## NOTE: Result should be a float
 	text = "%.4f" % result
 	disabled = false
+	successfully_parsed_result.emit(float(result))
