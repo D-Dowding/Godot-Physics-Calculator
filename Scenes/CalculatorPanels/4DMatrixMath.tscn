@@ -27,6 +27,9 @@ offset_bottom = 648.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 script = ExtResource("1_h3n62")
+panel_errors = Dictionary[StringName, String]({
+&"DetAIsZero": "float(button[\"DetA\"].text) == 0"
+})
 reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
 calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
 extras_button = NodePath("PanelBackground/ToolButtons/Control3/Extras")

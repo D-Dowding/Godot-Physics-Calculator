@@ -2,6 +2,7 @@ extends Control
 class_name CalculatorPanel
 
 @export var extra_calculations : Array[Control]
+@export var panel_errors : Dictionary[StringName, String]
 
 @export_group("Tool Buttons")
 @export var reset_button : Button
@@ -109,8 +110,9 @@ func calculate_fields():
 		queue_splash_text(SplashText.new(DEFAULT_ERROR_MESSAGE, DEFAULT_ERROR_COLOR, DEFAULT_HIGHLIGHT_TIME, true))
 		return
 	
-	for button in buttons:
+	for button : CalculationButton in buttons:
 		button.enable()
+	
 
 func reset_fields():
 	for input_field in input_fields.values():
