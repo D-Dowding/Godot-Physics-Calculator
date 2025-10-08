@@ -2,7 +2,7 @@ extends Control
 class_name CalculatorPanel
 
 @export var extra_calculations : Array[Control]
-@export var panel_errors : Dictionary[StringName, String]
+@export var panel_errors : Dictionary[StringName, ButtonError]
 
 @export_group("Tool Buttons")
 @export var reset_button : Button
@@ -112,7 +112,23 @@ func calculate_fields():
 	
 	for button : CalculationButton in buttons:
 		button.enable()
-	
+		
+	evaluate_errors()
+
+func evaluate_errors():
+	var error : Error
+	var result : bool
+	var expression : Expression = Expression.new()
+	for button_error : ButtonError in panel_errors.values():
+		error = expression.parse(button_error.evaluate_error_expression, button_error.expression_node_bindings.keys())
+		var bind_nodes : Array[Node]
+		for node_path : NodePath in button_error.expression_node_bindings.values():
+			bind_nodes.append(get_node(node_path))
+		result = expression.execute(bind_nodes, self)
+		if result:
+			for node_path : NodePath in button_error.error_node_callable.keys():
+				get_node(node_path).call(button_error.error_node_callable[node_path])
+			queue_splash_text(SplashText.new(button_error.error_splash_text, DEFAULT_ERROR_COLOR, DEFAULT_HIGHLIGHT_TIME, false))
 
 func reset_fields():
 	for input_field in input_fields.values():

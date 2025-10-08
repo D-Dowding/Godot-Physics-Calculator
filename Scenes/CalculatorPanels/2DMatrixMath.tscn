@@ -1,10 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyr8hn2kta5dy"]
+[gd_scene load_steps=10 format=3 uid="uid://cyr8hn2kta5dy"]
 
 [ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_5egp5"]
 [ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_2fp5j"]
+[ext_resource type="Script" uid="uid://pe14q24f70tb" path="res://Scripts/ButtonError.gd" id="2_qjlmk"]
 [ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_qjlmk"]
 [ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_vsgxo"]
 [ext_resource type="Texture2D" uid="uid://bc4ou4duc1ri0" path="res://Assets/Textures/Panel Icons/2DMatrixIcon.png" id="5_k8bey"]
+
+[sub_resource type="Resource" id="Resource_vsgxo"]
+script = ExtResource("2_qjlmk")
+expression_node_bindings = Dictionary[StringName, NodePath]({
+&"buttonDetA": NodePath("PanelBackground/Math/Calculations/det(A)/Button")
+})
+evaluate_error_expression = "float(buttonDetA.text) == 0.0"
+error_node_callable = Dictionary[NodePath, String]({
+NodePath("PanelBackground/Math/Calculations/A^-1/Button"): "disable",
+NodePath("PanelBackground/Math/Calculations/A^-1/Button2"): "disable",
+NodePath("PanelBackground/Math/Calculations/A^-1/Button3"): "disable",
+NodePath("PanelBackground/Math/Calculations/A^-1/Button4"): "disable"
+})
+error_splash_text = "Inverse cannot be found for A"
+metadata/_custom_type_script = "uid://pe14q24f70tb"
+
+[sub_resource type="Resource" id="Resource_k8bey"]
+script = ExtResource("2_qjlmk")
+expression_node_bindings = Dictionary[StringName, NodePath]({
+&"buttonDetB": NodePath("PanelBackground/Math/Calculations/det(B)/Button")
+})
+evaluate_error_expression = "float(buttonDetB.text) == 0.0"
+error_node_callable = Dictionary[NodePath, String]({
+NodePath("PanelBackground/Math/Calculations/B^-1/Button"): "disable",
+NodePath("PanelBackground/Math/Calculations/B^-1/Button2"): "disable",
+NodePath("PanelBackground/Math/Calculations/B^-1/Button3"): "disable",
+NodePath("PanelBackground/Math/Calculations/B^-1/Button4"): "disable"
+})
+error_splash_text = "Inverse cannot be found for B"
+metadata/_custom_type_script = "uid://pe14q24f70tb"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
 bg_color = Color(0.5729883, 0.5729882, 0.57298845, 1)
@@ -27,6 +58,10 @@ offset_bottom = 363.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 script = ExtResource("1_5egp5")
+panel_errors = Dictionary[StringName, ExtResource("2_qjlmk")]({
+&"IsDetAZero": SubResource("Resource_vsgxo"),
+&"IsDetBZero": SubResource("Resource_k8bey")
+})
 reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
 calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
 extras_button = NodePath("PanelBackground/ToolButtons/Control3/Extras")

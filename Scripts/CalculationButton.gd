@@ -44,23 +44,18 @@ func enable(message : String = expression_text):
 	if error != OK:
 		printerr(expression.get_error_text())
 		push_error(expression.get_error_text(), ", ", error)
+		disable()
 		return
 		
 	var result = expression.execute([myPanelOwner.input_fields], self)
 	if expression.has_execute_failed():
 		printerr(expression.get_error_text())
 		push_error(expression.get_error_text())
+		disable()
 		return
 		
 	if is_nan(float(result)):
 		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Error in fields caused NaN value", myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
-	
-	if ($"..".name == "det(A)" || $"..".name == "det(B)") && float(result) == 0:
-		## HACK: This is dumb. 
-		## I have to do this because you can't use array subscript operators on StringName for some reason.
-		## It's not really a big deal, just silly that I have to create a whole new variable for this crap.
-		var char : String = $"..".name
-		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Inverse cannot be found for " + str(char[4]), myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
 	
 	## NOTE: Result should be a float
 	text = "%.4f" % result
