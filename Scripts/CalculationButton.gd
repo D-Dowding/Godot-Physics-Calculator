@@ -54,8 +54,13 @@ func enable(message : String = expression_text):
 		disable()
 		return
 		
+	# Warn that a value is NaN (Which should almost never happen)
 	if is_nan(float(result)):
 		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Error in fields caused NaN value", myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
+	
+	# Fix negative zeros
+	if (result == -0):
+		result = 0
 	
 	## NOTE: Result should be a float
 	text = "%.4f" % result
