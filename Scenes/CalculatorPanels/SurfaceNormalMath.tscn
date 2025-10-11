@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c27exms4ti8nb"]
+[gd_scene load_steps=9 format=3 uid="uid://cxomjx3n03l3u"]
 
-[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_ab8oc"]
-[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_r3pd2"]
-[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_o6np1"]
-[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_o6np1"]
-[ext_resource type="Texture2D" uid="uid://dy2qdtgaaxqb2" path="res://Assets/Textures/Panel Icons/2DVectorIcon.png" id="5_r5yw5"]
+[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_cervb"]
+[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_ndw44"]
+[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_vo3v1"]
+[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_sjeih"]
+[ext_resource type="Texture2D" uid="uid://ywmqotef7avo" path="res://Assets/Textures/Panel Icons/SurfaceNormalIcon.png" id="5_mfjx3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
 bg_color = Color(0.57254905, 0.57254905, 0.57254905, 1)
@@ -28,14 +28,14 @@ font_size = 24
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="2DVectorMath" type="Control" node_paths=PackedStringArray("extra_calculations", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+[node name="SurfaceNormalMath" type="Control" node_paths=PackedStringArray("extra_calculations", "reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 924.0
 offset_bottom = 349.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-script = ExtResource("1_ab8oc")
+script = ExtResource("1_cervb")
 extra_calculations = [NodePath("PanelBackground/Math/Calculations/A∠Radians"), NodePath("PanelBackground/Math/Calculations/B∠Radians"), NodePath("PanelBackground/Math/Calculations/A∠Degrees"), NodePath("PanelBackground/Math/Calculations/B∠Degrees")]
 reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
 calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
@@ -101,7 +101,7 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_r3pd2")
+script = ExtResource("2_ndw44")
 id = "AX"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
@@ -117,7 +117,7 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_r3pd2")
+script = ExtResource("2_ndw44")
 id = "AY"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
@@ -165,7 +165,7 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_r3pd2")
+script = ExtResource("2_ndw44")
 id = "BX"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
@@ -181,7 +181,7 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_r3pd2")
+script = ExtResource("2_ndw44")
 id = "BY"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
@@ -230,7 +230,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 text = "1"
 alignment = 1
-script = ExtResource("2_r3pd2")
+script = ExtResource("2_ndw44")
 id = "S"
 default_string = "1"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
@@ -281,7 +281,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"AX\"].text) + float(field[\"BX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -293,7 +293,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"AY\"].text) + float(field[\"BY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -341,7 +341,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"AX\"].text) - float(field[\"BX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -353,7 +353,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"AY\"].text) - float(field[\"BY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -401,7 +401,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"BX\"].text) - float(field[\"AX\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -413,7 +413,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"BY\"].text) - float(field[\"AY\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -465,7 +465,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).dot(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -499,7 +499,7 @@ offset_bottom = 34.0
 size_flags_horizontal = 3
 tooltip_text = "Magnitude
 A² + B² = C²
-The length of the vector. This is also the hypotenuse of the vector triangle."
+The length of the vector. This is also the hypotenuse of the vector triange."
 mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -518,7 +518,7 @@ offset_right = 164.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).length()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -552,7 +552,7 @@ offset_bottom = 34.0
 size_flags_horizontal = 3
 tooltip_text = "Magnitude
 A² + B² = C²
-The length of the vector. This is also the hypotenuse of the vector triangle."
+The length of the vector. This is also the hypotenuse of the vector triange."
 mouse_filter = 1
 mouse_default_cursor_shape = 16
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -571,7 +571,7 @@ offset_right = 165.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).length()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -623,7 +623,7 @@ offset_right = 125.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "abs(rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle_to(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)))))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -676,7 +676,7 @@ offset_right = 127.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "abs(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle_to(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text))))"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -728,7 +728,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"AX\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -740,7 +740,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"AY\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -792,7 +792,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(field[\"BX\"].text) * float(field[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -804,7 +804,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "float(myPanelOwner.input_fields[\"BY\"].text) * float(myPanelOwner.input_fields[\"S\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -856,7 +856,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).normalized().x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -868,7 +868,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).normalized().y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -920,7 +920,7 @@ offset_right = 156.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).normalized().x"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -932,7 +932,7 @@ offset_right = 252.0
 offset_bottom = 31.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).normalized().y"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -983,7 +983,7 @@ offset_right = 144.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -1034,7 +1034,7 @@ offset_right = 143.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle()"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -1085,7 +1085,7 @@ offset_right = 144.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "rad_to_deg(Vector2(float(field[\"AX\"].text), float(field[\"AY\"].text)).angle())"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -1136,7 +1136,7 @@ offset_right = 143.0
 offset_bottom = 33.0
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_o6np1")
+script = ExtResource("3_vo3v1")
 expression_text = "rad_to_deg(Vector2(float(field[\"BX\"].text), float(field[\"BY\"].text)).angle())"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -1255,12 +1255,12 @@ vertical_alignment = 1
 wait_time = 4.0
 one_shot = true
 
-[node name="PanelBar" parent="." instance=ExtResource("4_o6np1")]
+[node name="PanelBar" parent="." instance=ExtResource("4_sjeih")]
 layout_mode = 0
 offset_right = 955.65845
 scale = Vector2(0.9668726, 0.9668726)
-custom_icon = ExtResource("5_r5yw5")
-custom_title = &"2D Vectors"
+custom_icon = ExtResource("5_mfjx3")
+custom_title = &"Surface Normals"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false

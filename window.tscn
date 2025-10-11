@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b76jmw0bciio4"]
+[gd_scene load_steps=24 format=3 uid="uid://b76jmw0bciio4"]
 
 [ext_resource type="PackedScene" uid="uid://c27exms4ti8nb" path="res://Scenes/CalculatorPanels/2DVectorMath.tscn" id="1_808dq"]
 [ext_resource type="Script" uid="uid://phcenkj0kehk" path="res://Window.gd" id="1_tpxq1"]
@@ -7,28 +7,42 @@
 [ext_resource type="PackedScene" uid="uid://lks0vubrlvqm" path="res://Scenes/CalculatorPanels/3DMatrixMath.tscn" id="3_lkpq5"]
 [ext_resource type="Texture2D" uid="uid://dy2qdtgaaxqb2" path="res://Assets/Textures/Panel Icons/2DVectorIcon.png" id="3_tpxq1"]
 [ext_resource type="Texture2D" uid="uid://bc4ou4duc1ri0" path="res://Assets/Textures/Panel Icons/2DMatrixIcon.png" id="4_0aqkh"]
+[ext_resource type="PackedScene" uid="uid://c22ah615ayju2" path="res://Scenes/CalculatorPanels/3DVectorMath.tscn" id="4_d3v8n"]
 [ext_resource type="PackedScene" uid="uid://cyr8hn2kta5dy" path="res://Scenes/CalculatorPanels/2DMatrixMath.tscn" id="4_lkpq5"]
+[ext_resource type="PackedScene" uid="uid://cxomjx3n03l3u" path="res://Scenes/CalculatorPanels/SurfaceNormalMath.tscn" id="5_x17v7"]
 [ext_resource type="Texture2D" uid="uid://bmi5detu10s87" path="res://Assets/Textures/Panel Icons/3DMatrixIcon.png" id="5_ynis4"]
 [ext_resource type="PackedScene" uid="uid://b3oax5v0jxmbe" path="res://Scenes/CalculatorPanels/4DMatrixMath.tscn" id="6_mdr1w"]
 [ext_resource type="Texture2D" uid="uid://dx6nrpm0sa8fu" path="res://Assets/Textures/Exit Icons/ExitUnpressedIcon.png" id="7_xgw13"]
 [ext_resource type="Texture2D" uid="uid://ct5x1sigppug0" path="res://Assets/Textures/Panel Icons/4DMatrixIcon.png" id="10_ai0u8"]
+[ext_resource type="Texture2D" uid="uid://b5nx3g8y2y5bb" path="res://Assets/Textures/Panel Icons/3DVectorIcon.png" id="10_kl5jq"]
+[ext_resource type="Texture2D" uid="uid://ywmqotef7avo" path="res://Assets/Textures/Panel Icons/SurfaceNormalIcon.png" id="11_nwebx"]
 
 [sub_resource type="Resource" id="Resource_mdr1w"]
 script = ExtResource("2_nt685")
 scene = ExtResource("1_808dq")
 metadata/_custom_type_script = "uid://c0imtngtv0du7"
 
-[sub_resource type="Resource" id="Resource_2k6lg"]
+[sub_resource type="Resource" id="Resource_0mgyl"]
+script = ExtResource("2_nt685")
+scene = ExtResource("4_d3v8n")
+metadata/_custom_type_script = "uid://c0imtngtv0du7"
+
+[sub_resource type="Resource" id="Resource_5kx20"]
+script = ExtResource("2_nt685")
+scene = ExtResource("5_x17v7")
+metadata/_custom_type_script = "uid://c0imtngtv0du7"
+
+[sub_resource type="Resource" id="Resource_vh4yo"]
 script = ExtResource("2_nt685")
 scene = ExtResource("4_lkpq5")
 metadata/_custom_type_script = "uid://c0imtngtv0du7"
 
-[sub_resource type="Resource" id="Resource_ai0u8"]
+[sub_resource type="Resource" id="Resource_qh5we"]
 script = ExtResource("2_nt685")
 scene = ExtResource("3_lkpq5")
 metadata/_custom_type_script = "uid://c0imtngtv0du7"
 
-[sub_resource type="Resource" id="Resource_7ak0h"]
+[sub_resource type="Resource" id="Resource_log8n"]
 script = ExtResource("2_nt685")
 scene = ExtResource("6_mdr1w")
 metadata/_custom_type_script = "uid://c0imtngtv0du7"
@@ -47,9 +61,11 @@ size_flags_vertical = 3
 script = ExtResource("1_tpxq1")
 calculator_panel_data = Dictionary[int, ExtResource("2_nt685")]({
 0: SubResource("Resource_mdr1w"),
-1: SubResource("Resource_2k6lg"),
-2: SubResource("Resource_ai0u8"),
-3: SubResource("Resource_7ak0h")
+1: SubResource("Resource_0mgyl"),
+2: SubResource("Resource_5kx20"),
+3: SubResource("Resource_vh4yo"),
+4: SubResource("Resource_qh5we"),
+5: SubResource("Resource_log8n")
 })
 
 [node name="Background" type="TextureRect" parent="."]
@@ -75,26 +91,34 @@ offset_bottom = 62.0
 grow_horizontal = 0
 text = "Panel Menu"
 flat = false
-item_count = 5
+item_count = 7
 popup/item_0/text = "2D Vectors"
 popup/item_0/icon = ExtResource("3_tpxq1")
 popup/item_0/checkable = 1
 popup/item_0/id = 0
-popup/item_1/text = "2D Matricies"
-popup/item_1/icon = ExtResource("4_0aqkh")
+popup/item_1/text = "3D Vectors"
+popup/item_1/icon = ExtResource("10_kl5jq")
 popup/item_1/checkable = 1
 popup/item_1/id = 1
-popup/item_2/text = "3D Matricies"
-popup/item_2/icon = ExtResource("5_ynis4")
+popup/item_2/text = "Surface Normals"
+popup/item_2/icon = ExtResource("11_nwebx")
 popup/item_2/checkable = 1
 popup/item_2/id = 2
-popup/item_3/text = "4D Matricies"
-popup/item_3/icon = ExtResource("10_ai0u8")
+popup/item_3/text = "2D Matricies"
+popup/item_3/icon = ExtResource("4_0aqkh")
 popup/item_3/checkable = 1
 popup/item_3/id = 3
-popup/item_4/text = "Exit All Panels"
-popup/item_4/icon = ExtResource("7_xgw13")
-popup/item_4/id = 999
+popup/item_4/text = "3D Matricies"
+popup/item_4/icon = ExtResource("5_ynis4")
+popup/item_4/checkable = 1
+popup/item_4/id = 4
+popup/item_5/text = "4D Matricies"
+popup/item_5/icon = ExtResource("10_ai0u8")
+popup/item_5/checkable = 1
+popup/item_5/id = 5
+popup/item_6/text = "Exit All Panels"
+popup/item_6/icon = ExtResource("7_xgw13")
+popup/item_6/id = 999
 script = ExtResource("3_hfd2n")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="CalculatorPanelMenu"]
