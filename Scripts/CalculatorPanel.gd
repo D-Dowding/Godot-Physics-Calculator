@@ -20,6 +20,7 @@ var input_fields: Dictionary[String, InputField]
 var buttons : Array[CalculationButton]
 const DEFAULT_ERROR_MESSAGE : String = "Found an error in an input field! Highlighting the problem..."
 const DEFAULT_ERROR_COLOR : Color = Color.LIGHT_CORAL
+const DEFAULT_WARNING_COLOR : Color = Color.ORANGE
 const DEFAULT_HIGHLIGHT_TIME : float = 4.0
 const ERROR_HIGHLIGHT_RATE : float = 5.5
 const ERROR_COLOR_INTENSITY : float = 3.0

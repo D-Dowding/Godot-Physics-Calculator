@@ -43,20 +43,20 @@ func enable(message : String = expression_text):
 	var error : Error = expression.parse(message, ["field"])
 	if error != OK:
 		printerr(expression.get_error_text())
-		push_error(expression.get_error_text(), ", ", error)
+		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Critical Error in backend: \"" + expression.get_error_text() + "\" @ " + self.name + "/" + $"..".name, myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
 		disable()
 		return
 		
 	var result = expression.execute([myPanelOwner.input_fields], self)
 	if expression.has_execute_failed():
 		printerr(expression.get_error_text())
-		push_error(expression.get_error_text())
+		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Critical Error in backend: \"" + expression.get_error_text() + "\" @ " + self.name + "/" + $"..".name, myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
 		disable()
 		return
 		
 	# Warn that a value is NaN (Which should almost never happen)
 	if is_nan(float(result)):
-		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Error in fields caused NaN value", myPanelOwner.DEFAULT_ERROR_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
+		myPanelOwner.queue_splash_text(myPanelOwner.SplashText.new("Error in fields caused NaN value", myPanelOwner.DEFAULT_WARNING_COLOR, myPanelOwner.DEFAULT_HIGHLIGHT_TIME))
 	
 	# Fix negative zeros
 	if (result == -0):
