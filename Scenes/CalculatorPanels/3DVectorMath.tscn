@@ -121,7 +121,7 @@ id = "AY"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AY)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_VectorContainer"]
+[node name="InputField (AZ)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/A_VectorContainer"]
 layout_mode = 1
 offset_left = 317.525
 offset_top = 3.3250036
@@ -202,7 +202,7 @@ id = "BY"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AY)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_VectorContainer"]
+[node name="InputField (BZ)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/B_VectorContainer"]
 layout_mode = 0
 offset_left = 317.61588
 offset_top = 5.597728
