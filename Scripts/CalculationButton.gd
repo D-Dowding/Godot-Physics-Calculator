@@ -3,6 +3,9 @@ class_name CalculationButton
 
 @export_custom(PROPERTY_HINT_EXPRESSION, "") var expression_text : String = ""
 @export var remove_trailing_zeros : bool = true
+## if this value is greater than -1, the significant digits for this button will override the global signifcant digits
+## of the parent panel object
+@export var override_sig_digs : int = -1
 @onready var expression : Expression = Expression.new()
 @onready var myPanelOwner : CalculatorPanel = owner
 @onready var window : CalculatorWindow = get_tree().get_root().get_child(0)
@@ -16,8 +19,18 @@ func _ready() -> void:
 	pressed.connect(copy_to_clipboard.bind(self))
 	myPanelOwner.buttons.append(self)
 	
+func _get_formatting() -> String:
+	var format : String
+	if override_sig_digs >= 0:
+		format = "%."+str(override_sig_digs)+"f"
+	else:
+		format = "%."+str(myPanelOwner.button_sig_digs)+"f"
+		
+	return format
+		
 func copy_to_clipboard(button):
-	var formatted_string : String = "%.4f" % float(button.text)
+	var formatted_string : String = _get_formatting() % float(button.text)
+	
 	if remove_trailing_zeros:
 		formatted_string = formatted_string.rstrip("0")
 		if formatted_string.ends_with("."):
@@ -63,6 +76,6 @@ func enable(message : String = expression_text):
 		result = 0
 	
 	## NOTE: Result should be a float
-	text = "%.4f" % result
+	text = _get_formatting() % result
 	disabled = false
 	successfully_parsed_result.emit(float(result))

@@ -3,6 +3,11 @@ class_name CalculatorPanel
 
 @export var extra_calculations : Array[Control]
 @export var panel_errors : Dictionary[StringName, ButtonError]
+## The significant digits for the text of each button.
+## [br]eg. [code]button_sig_digs = 4[/code] will result in a button that displays "0.0000"
+## [br]eg2. [code]button_sig_digs = 6[/code] will result in a button that displays "0.000000"
+## [br]Default is 4.
+@export var button_sig_digs : int = 4
 
 @export_group("Tool Buttons")
 @export var reset_button : Button
