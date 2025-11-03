@@ -1,0 +1,499 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw22ykv8c027t"]
+
+[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_spt5l"]
+[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_j083g"]
+[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_sili1"]
+[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_0k4qs"]
+[ext_resource type="Texture2D" uid="uid://cv41hnvssci8j" path="res://Assets/Textures/Panel Icons/2x2MatrixTransposeIcon.png" id="5_spt5l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
+bg_color = Color(0.57254905, 0.57254905, 0.57254905, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="2x2MatrixTranspose" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 653.0
+offset_bottom = 241.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+script = ExtResource("1_spt5l")
+reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
+calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
+extras_button = NodePath("PanelBackground/ToolButtons/Control3/Extras")
+splash_text = NodePath("PanelBackground/SplashText")
+splash_text_timer = NodePath("PanelBackground/SplashText/SplashTextTimer")
+
+[node name="PanelBackground" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 653.0
+offset_bottom = 241.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6np1")
+
+[node name="Math" type="FlowContainer" parent="PanelBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.026
+anchor_right = 0.017
+anchor_bottom = 0.026
+offset_left = 19.0
+offset_top = 38.999996
+offset_right = 546.15796
+offset_bottom = 121.28181
+scale = Vector2(0.88, 0.88)
+mouse_filter = 2
+theme_override_constants/v_separation = 29
+vertical = true
+
+[node name="UserInputContainer" type="HBoxContainer" parent="PanelBackground/Math"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 329
+alignment = 1
+
+[node name="2x2Matrix" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/2x2Matrix"]
+layout_mode = 1
+offset_right = 39.5625
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "	|
+M=|"
+horizontal_alignment = 2
+
+[node name="InputField (AX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/2x2Matrix"]
+layout_mode = 1
+offset_left = 49.409092
+offset_top = 5.3159113
+offset_right = 172.84659
+offset_bottom = 36.31591
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_j083g")
+id = "M00"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/2x2Matrix"]
+layout_mode = 1
+offset_left = 184.40909
+offset_top = 5.3159113
+offset_right = 309.84662
+offset_bottom = 36.315918
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_j083g")
+id = "M01"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/2x2Matrix"]
+layout_mode = 1
+offset_left = 49.343174
+offset_top = 39.450005
+offset_right = 173.2068
+offset_bottom = 70.450005
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_j083g")
+id = "M10"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/2x2Matrix"]
+layout_mode = 1
+offset_left = 184.57045
+offset_top = 39.450005
+offset_right = 309.5705
+offset_bottom = 70.450005
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_j083g")
+id = "M11"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/2x2Matrix"]
+layout_mode = 1
+offset_left = 309.57047
+offset_top = -0.3659075
+offset_right = 322.57047
+offset_bottom = 70.634094
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|"
+
+[node name="Vector2D" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/Vector2D"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 35.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "	|
+V=|"
+horizontal_alignment = 2
+
+[node name="InputField (BX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector2D"]
+layout_mode = 0
+offset_left = 51.70682
+offset_top = 5.315909
+offset_right = 172.00003
+offset_bottom = 36.31591
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_j083g")
+id = "X"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (BY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector2D"]
+layout_mode = 0
+offset_left = 51.706882
+offset_top = 39.72273
+offset_right = 172.16147
+offset_bottom = 70.72273
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_j083g")
+id = "Y"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/Vector2D"]
+layout_mode = 0
+offset_left = 172.16138
+offset_top = 0.7704549
+offset_right = 198.16138
+offset_bottom = 71.770454
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|"
+
+[node name="Calculations" type="Control" parent="PanelBackground/Math"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="M^T" type="Control" parent="PanelBackground/Math/Calculations"]
+anchors_preset = 0
+offset_left = -25.656822
+offset_top = 37.543186
+offset_right = -25.656822
+offset_bottom = 37.543186
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "M^T=|
+		  |"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Button00" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 76.13637
+offset_top = 7.954547
+offset_right = 161.13637
+offset_bottom = 32.954548
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_sili1")
+expression_text = "float(field[\"M00\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button01" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 168.18182
+offset_top = 7.954547
+offset_right = 252.18182
+offset_bottom = 32.954548
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_sili1")
+expression_text = "float(field[\"M10\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button10" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 76.13637
+offset_top = 43.181816
+offset_right = 160.13637
+offset_bottom = 68.181816
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_sili1")
+expression_text = "float(field[\"M01\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button11" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 168.18182
+offset_top = 43.181816
+offset_right = 252.18182
+offset_bottom = 68.181816
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_sili1")
+expression_text = "float(field[\"M11\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 252.27274
+offset_right = 265.27274
+offset_bottom = 71.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|"
+vertical_alignment = 1
+
+[node name="M x V" type="Control" parent="PanelBackground/Math/Calculations"]
+anchors_preset = 0
+offset_left = 290.25226
+offset_top = 38.96137
+offset_right = 290.25226
+offset_bottom = 38.96137
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/Calculations/M x V"]
+layout_mode = 0
+offset_right = 67.0
+offset_bottom = 34.0
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "M x V=|
+			|"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonX" type="Button" parent="PanelBackground/Math/Calculations/M x V"]
+layout_mode = 0
+offset_left = 88.63636
+offset_top = 6.5363636
+offset_right = 173.63635
+offset_bottom = 33.809082
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_sili1")
+expression_text = "float(field[\"M00\"].text) * float(field[\"X\"].text) + float(field[\"M01\"].text) * float(field[\"Y\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/M x V"]
+layout_mode = 0
+offset_left = 88.63637
+offset_top = 41.763634
+offset_right = 173.86363
+offset_bottom = 71.30909
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_sili1")
+expression_text = "float(field[\"M10\"].text) * float(field[\"X\"].text) + float(field[\"M11\"].text) * float(field[\"Y\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/M x V"]
+layout_mode = 0
+offset_left = 176.13637
+offset_top = -0.28181943
+offset_right = 189.13637
+offset_bottom = 70.71818
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "|
+|"
+vertical_alignment = 1
+
+[node name="ToolButtons" type="VBoxContainer" parent="PanelBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.026
+anchor_right = 0.017
+anchor_bottom = 0.026
+offset_left = 482.899
+offset_top = 43.408
+offset_right = 606.8
+offset_bottom = 184.408
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 34
+
+[node name="Control" type="Control" parent="PanelBackground/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Calculate" type="Button" parent="PanelBackground/ToolButtons/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 1
+text = "Calculate"
+
+[node name="Control2" type="Control" parent="PanelBackground/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Reset" type="Button" parent="PanelBackground/ToolButtons/Control2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 1
+text = "Reset
+"
+
+[node name="Control3" type="Control" parent="PanelBackground/ToolButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Extras" type="CheckButton" parent="PanelBackground/ToolButtons/Control3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.0
+offset_right = 52.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+tooltip_text = "Adds extra calculations not included in the original physics calculator.
+WARNING: It's recommended you keep this off during tests, as the extra options are experimental and prone to change."
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+text = "Extras"
+
+[node name="SplashText" type="RichTextLabel" parent="PanelBackground"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -39.0
+offset_right = 621.2279
+offset_bottom = -11.0
+grow_vertical = 0
+scale = Vector2(0.99461323, 0.99461323)
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 20
+text = "This is splash text"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="SplashTextTimer" type="Timer" parent="PanelBackground/SplashText"]
+wait_time = 4.0
+one_shot = true
+
+[node name="PanelBar" parent="." instance=ExtResource("4_0k4qs")]
+layout_mode = 0
+offset_right = 675.37335
+scale = Vector2(0.9668726, 0.9668726)
+custom_icon = ExtResource("5_spt5l")
+custom_title = &"2 x 2 Matrix Transpose, Multiply by Vector"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+border_width = 1.5
+editor_only = false
