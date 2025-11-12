@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b76jmw0bciio4"]
+[gd_scene load_steps=33 format=3 uid="uid://b76jmw0bciio4"]
 
 [ext_resource type="PackedScene" uid="uid://c27exms4ti8nb" path="res://Scenes/CalculatorPanels/2DVectorMath.tscn" id="1_808dq"]
 [ext_resource type="Script" uid="uid://phcenkj0kehk" path="res://Window.gd" id="1_tpxq1"]
@@ -17,9 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://c0wb52e476utd" path="res://Scenes/CalculatorPanels/3x3MatrixTranspose.tscn" id="9_nwebx"]
 [ext_resource type="Texture2D" uid="uid://ct5x1sigppug0" path="res://Assets/Textures/Panel Icons/4DMatrixIcon.png" id="10_ai0u8"]
 [ext_resource type="Texture2D" uid="uid://b5nx3g8y2y5bb" path="res://Assets/Textures/Panel Icons/3DVectorIcon.png" id="10_kl5jq"]
+[ext_resource type="PackedScene" uid="uid://cbgtwpm7f8mr2" path="res://Scenes/CalculatorPanels/4x4MatrixTranspose.tscn" id="11_5kx20"]
 [ext_resource type="Texture2D" uid="uid://ywmqotef7avo" path="res://Assets/Textures/Panel Icons/SurfaceNormalIcon.png" id="11_nwebx"]
 [ext_resource type="Texture2D" uid="uid://cv41hnvssci8j" path="res://Assets/Textures/Panel Icons/2x2MatrixTransposeIcon.png" id="16_0mgyl"]
 [ext_resource type="Texture2D" uid="uid://bp5la1iparsft" path="res://Assets/Textures/Panel Icons/3x3MatrixTransposeIcon.png" id="17_5kx20"]
+[ext_resource type="Texture2D" uid="uid://c5tqcjq7db16y" path="res://Assets/Textures/Panel Icons/4x4MatrixTransposeIcon.png" id="20_vh4yo"]
 
 [sub_resource type="Resource" id="Resource_mdr1w"]
 script = ExtResource("2_nt685")
@@ -61,6 +63,11 @@ script = ExtResource("2_nt685")
 scene = ExtResource("9_nwebx")
 metadata/_custom_type_script = "uid://c0imtngtv0du7"
 
+[sub_resource type="Resource" id="Resource_qxvw0"]
+script = ExtResource("2_nt685")
+scene = ExtResource("11_5kx20")
+metadata/_custom_type_script = "uid://c0imtngtv0du7"
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_hjewq"]
 
 [node name="Window" type="Control"]
@@ -82,7 +89,8 @@ calculator_panel_data = Dictionary[int, ExtResource("2_nt685")]({
 4: SubResource("Resource_qh5we"),
 5: SubResource("Resource_log8n"),
 6: SubResource("Resource_kl5jq"),
-7: SubResource("Resource_4lonl")
+7: SubResource("Resource_4lonl"),
+8: SubResource("Resource_qxvw0")
 })
 
 [node name="Background" type="TextureRect" parent="."]
@@ -108,7 +116,7 @@ offset_bottom = 62.0
 grow_horizontal = 0
 text = "Panel Menu"
 flat = false
-item_count = 9
+item_count = 10
 popup/item_0/text = "2D Vectors"
 popup/item_0/icon = ExtResource("3_tpxq1")
 popup/item_0/checkable = 1
@@ -141,9 +149,13 @@ popup/item_7/text = "3x3 Matrix Transposition & Vector Multiplication"
 popup/item_7/icon = ExtResource("17_5kx20")
 popup/item_7/checkable = 1
 popup/item_7/id = 7
-popup/item_8/text = "Exit All Panels"
-popup/item_8/icon = ExtResource("7_xgw13")
-popup/item_8/id = 999
+popup/item_8/text = "4x4 Matrix Transposition & Vector Multiplication"
+popup/item_8/icon = ExtResource("20_vh4yo")
+popup/item_8/checkable = 1
+popup/item_8/id = 8
+popup/item_9/text = "Exit All Panels"
+popup/item_9/icon = ExtResource("7_xgw13")
+popup/item_9/id = 999
 script = ExtResource("3_hfd2n")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="CalculatorPanelMenu"]

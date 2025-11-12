@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0wb52e476utd"]
+[gd_scene load_steps=7 format=3 uid="uid://cbgtwpm7f8mr2"]
 
-[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_1asl4"]
-[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_2xi4c"]
-[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_5rn5l"]
-[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_5k000"]
-[ext_resource type="Texture2D" uid="uid://bp5la1iparsft" path="res://Assets/Textures/Panel Icons/3x3MatrixTransposeIcon.png" id="5_1asl4"]
+[ext_resource type="Script" uid="uid://d2rth76usp1o3" path="res://Scripts/CalculatorPanel.gd" id="1_12dup"]
+[ext_resource type="Script" uid="uid://b06p2rmix4tvf" path="res://Scripts/InputField.gd" id="2_l862h"]
+[ext_resource type="Script" uid="uid://c0t512awy5gae" path="res://Scripts/CalculationButton.gd" id="3_a8t5l"]
+[ext_resource type="PackedScene" uid="uid://c4gt23jj7fxtg" path="res://Scenes/PanelBar.tscn" id="4_o3gt1"]
+[ext_resource type="Texture2D" uid="uid://c5tqcjq7db16y" path="res://Assets/Textures/Panel Icons/4x4MatrixTransposeIcon.png" id="5_ghsb6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6np1"]
 bg_color = Color(0.57254905, 0.57254905, 0.57254905, 1)
@@ -19,14 +19,14 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="3x3MatrixTranspose" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
+[node name="4x4MatrixTranspose" type="Control" node_paths=PackedStringArray("reset_button", "calculate_button", "extras_button", "splash_text", "splash_text_timer") groups=["CalculatorPanel"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 655.0
-offset_bottom = 332.0
+offset_right = 785.0
+offset_bottom = 371.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-script = ExtResource("1_1asl4")
+script = ExtResource("1_12dup")
 reset_button = NodePath("PanelBackground/ToolButtons/Control2/Reset")
 calculate_button = NodePath("PanelBackground/ToolButtons/Control/Calculate")
 extras_button = NodePath("PanelBackground/ToolButtons/Control3/Extras")
@@ -35,8 +35,8 @@ splash_text_timer = NodePath("PanelBackground/SplashText/SplashTextTimer")
 
 [node name="PanelBackground" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 655.0
-offset_bottom = 332.0
+offset_right = 785.0
+offset_bottom = 371.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_o6np1")
 
@@ -61,14 +61,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/separation = 469
+theme_override_constants/separation = 599
 alignment = 1
 
-[node name="3x3Matrix" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+[node name="4x4Matrix" type="Control" parent="PanelBackground/Math/UserInputContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_right = 39.5625
 offset_bottom = 34.0
@@ -79,10 +79,11 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "	|
 M=|
+	|
 	|"
 horizontal_alignment = 2
 
-[node name="InputField (AX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 49.409092
 offset_top = 5.3159113
@@ -93,12 +94,12 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M00"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 184.40909
 offset_top = 5.3159113
@@ -109,12 +110,12 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M01"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AZ)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AZ)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 319.46704
 offset_top = 4.963642
@@ -125,113 +126,225 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M02"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AZ)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AZ)6" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
-offset_left = 49.012497
-offset_top = 40.190914
-offset_right = 174.01254
-offset_bottom = 71.19092
+offset_left = 449.60797
+offset_top = 4.963642
+offset_right = 573.4716
+offset_bottom = 35.963642
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
+id = "M03"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 49.012497
+offset_top = 42.447742
+offset_right = 174.01254
+offset_bottom = 73.44775
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
 id = "M10"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AX)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AX)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 184.2398
-offset_top = 40.190914
+offset_top = 42.447742
 offset_right = 307.6773
-offset_bottom = 71.19092
+offset_bottom = 73.44775
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M11"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AY)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AY)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 319.46707
-offset_top = 40.19091
+offset_top = 42.44774
 offset_right = 444.9046
-offset_bottom = 71.19092
+offset_bottom = 73.44775
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M12"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AZ)3" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AY)3" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
-offset_left = 49.0125
-offset_top = 74.28182
-offset_right = 172.87613
-offset_bottom = 105.28182
+offset_left = 449.60797
+offset_top = 42.44774
+offset_right = 575.04553
+offset_bottom = 73.44775
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
+id = "M13"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)3" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 49.0125
+offset_top = 77.675
+offset_right = 172.87613
+offset_bottom = 108.675
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
 id = "M20"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AZ)4" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AZ)4" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 184.23976
-offset_top = 74.28182
+offset_top = 77.675
 offset_right = 309.2398
-offset_bottom = 105.28182
+offset_bottom = 108.675
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M21"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (AZ)5" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AZ)5" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
 offset_left = 319.46704
-offset_top = 74.28182
+offset_top = 77.675
 offset_right = 444.4671
-offset_bottom = 105.28182
+offset_bottom = 108.675
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "M22"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/3x3Matrix"]
+[node name="InputField (AZ)7" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
 layout_mode = 1
-offset_left = 444.46707
+offset_left = 449.60797
+offset_top = 77.675
+offset_right = 574.60803
+offset_bottom = 108.675
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
+id = "M23"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)8" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 49.0125
+offset_top = 114.038635
+offset_right = 172.87613
+offset_bottom = 145.03864
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
+id = "M30"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)9" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 184.23976
+offset_top = 114.038635
+offset_right = 309.2398
+offset_bottom = 145.03864
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
+id = "M31"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)10" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 319.46704
+offset_top = 114.038635
+offset_right = 444.4671
+offset_bottom = 145.03864
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
+id = "M32"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="InputField (AZ)11" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 449.60797
+offset_top = 114.038635
+offset_right = 574.60803
+offset_bottom = 145.03864
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "0"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
+id = "M33"
+default_string = "0"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/4x4Matrix"]
+layout_mode = 1
+offset_left = 579.15344
 offset_top = 0.4181862
-offset_right = 457.46707
-offset_bottom = 71.41818
+offset_right = 592.15344
+offset_bottom = 145.41818
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -239,15 +352,16 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "|
 |
+|
 |"
 
-[node name="Vector3D" type="Control" parent="PanelBackground/Math/UserInputContainer"]
+[node name="Vector4D" type="Control" parent="PanelBackground/Math/UserInputContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/Vector3D"]
+[node name="LabelStart" type="Label" parent="PanelBackground/Math/UserInputContainer/Vector4D"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 1.0
@@ -260,10 +374,11 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "	|
 V=|
+	|
 	|"
 horizontal_alignment = 2
 
-[node name="InputField (BX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector3D"]
+[node name="InputField (BX)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector4D"]
 layout_mode = 0
 offset_left = 51.70682
 offset_top = 5.315909
@@ -274,12 +389,12 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "X"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (BY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector3D"]
+[node name="InputField (BY)" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector4D"]
 layout_mode = 0
 offset_left = 51.706882
 offset_top = 39.72273
@@ -290,12 +405,12 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "Y"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="InputField (BY)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector3D"]
+[node name="InputField (BY)2" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector4D"]
 layout_mode = 0
 offset_left = 51.603436
 offset_top = 74.28182
@@ -306,12 +421,28 @@ mouse_filter = 1
 text = "0"
 placeholder_text = "0"
 alignment = 1
-script = ExtResource("2_2xi4c")
+script = ExtResource("2_l862h")
 id = "Z"
 default_string = "0"
 metadata/_custom_type_script = "uid://b06p2rmix4tvf"
 
-[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/Vector3D"]
+[node name="InputField (BY)3" type="LineEdit" parent="PanelBackground/Math/UserInputContainer/Vector4D"]
+layout_mode = 0
+offset_left = 51.30114
+offset_top = 108.37273
+offset_right = 171.75574
+offset_bottom = 139.37274
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "1"
+placeholder_text = "0"
+alignment = 1
+script = ExtResource("2_l862h")
+id = "W"
+default_string = "1"
+metadata/_custom_type_script = "uid://b06p2rmix4tvf"
+
+[node name="LabelEnd" type="Label" parent="PanelBackground/Math/UserInputContainer/Vector4D"]
 layout_mode = 0
 offset_left = 172.16138
 offset_top = 0.7704549
@@ -324,6 +455,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "|
 |
+|
 |"
 
 [node name="Calculations" type="Control" parent="PanelBackground/Math"]
@@ -334,9 +466,9 @@ mouse_filter = 2
 [node name="M^T" type="Control" parent="PanelBackground/Math/Calculations"]
 anchors_preset = 0
 offset_left = -25.656822
-offset_top = 37.543186
+offset_top = 51.811367
 offset_right = -25.656822
-offset_bottom = 37.543186
+offset_bottom = 51.811367
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -352,6 +484,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "		  |
 M^T=|
+		  |
 		  |"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -359,37 +492,49 @@ vertical_alignment = 1
 [node name="Button00" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
 layout_mode = 0
 offset_left = 76.13637
-offset_top = 7.954547
+offset_top = 7.4500012
 offset_right = 161.13637
-offset_bottom = 32.954548
+offset_bottom = 32.45
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M00\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button01" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
 layout_mode = 0
 offset_left = 168.18182
-offset_top = 7.954547
+offset_top = 7.4500012
 offset_right = 252.18182
-offset_bottom = 32.954548
+offset_bottom = 32.45
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M10\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button10" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
 layout_mode = 0
-offset_left = 259.8966
-offset_top = 8.60228
-offset_right = 343.8966
-offset_bottom = 33.60228
+offset_left = 260.49203
+offset_top = 7.4499984
+offset_right = 344.49203
+offset_bottom = 32.449997
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M20\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button15" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 350.26477
+offset_top = 7.4499984
+offset_right = 434.26477
+offset_bottom = 32.449997
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M30\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button11" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
@@ -400,7 +545,7 @@ offset_right = 159.8057
 offset_bottom = 69.96592
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M01\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -412,7 +557,7 @@ offset_right = 252.85114
 offset_bottom = 69.96592
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M11\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -424,8 +569,20 @@ offset_right = 343.8966
 offset_bottom = 69.96592
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M21\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button04" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 349.12842
+offset_top = 44.96592
+offset_right = 433.12842
+offset_bottom = 69.96592
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M31\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="Button12" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
@@ -436,7 +593,7 @@ offset_right = 159.8057
 offset_bottom = 106.32955
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M02\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -448,7 +605,7 @@ offset_right = 251.85114
 offset_bottom = 106.32955
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M12\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
@@ -460,16 +617,76 @@ offset_right = 343.8966
 offset_bottom = 106.32955
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
+script = ExtResource("3_a8t5l")
 expression_text = "float(field[\"M22\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button16" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 347.99203
+offset_top = 81.32955
+offset_right = 431.99203
+offset_bottom = 106.32955
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M32\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button17" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 75.80569
+offset_top = 114.26818
+offset_right = 159.8057
+offset_bottom = 139.26819
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M03\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button18" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 167.85114
+offset_top = 114.26818
+offset_right = 251.85114
+offset_bottom = 139.26819
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M13\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button19" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 259.8966
+offset_top = 114.26818
+offset_right = 343.8966
+offset_bottom = 139.26819
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M23\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="Button20" type="Button" parent="PanelBackground/Math/Calculations/M^T"]
+layout_mode = 0
+offset_left = 347.99203
+offset_top = 114.26818
+offset_right = 431.99203
+offset_bottom = 139.26819
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M33\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/M^T"]
 layout_mode = 0
-offset_left = 343.98752
+offset_left = 435.49207
 offset_top = -0.48862803
-offset_right = 356.98752
-offset_bottom = 107.511375
+offset_right = 448.49207
+offset_bottom = 144.51137
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -477,15 +694,16 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "|
 |
+|
 |"
 vertical_alignment = 1
 
 [node name="M x V" type="Control" parent="PanelBackground/Math/Calculations"]
 anchors_preset = 0
-offset_left = 339.9216
-offset_top = 38.96137
-offset_right = 339.9216
-offset_bottom = 38.96137
+offset_left = 429.1534
+offset_top = 52.947712
+offset_right = 429.1534
+offset_bottom = 52.947712
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -501,6 +719,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "			|
 M x V=|
+			|
 			|"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -513,8 +732,8 @@ offset_right = 173.63635
 offset_bottom = 33.809082
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
-expression_text = "float(field[\"M00\"].text) * float(field[\"X\"].text) + float(field[\"M01\"].text) * float(field[\"Y\"].text) + float(field[\"M02\"].text) * float(field[\"Z\"].text)"
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M00\"].text) * float(field[\"X\"].text) + float(field[\"M01\"].text) * float(field[\"Y\"].text) + float(field[\"M02\"].text) * float(field[\"Z\"].text) + float(field[\"M03\"].text) * float(field[\"W\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonY" type="Button" parent="PanelBackground/Math/Calculations/M x V"]
@@ -525,8 +744,8 @@ offset_right = 173.86363
 offset_bottom = 71.30909
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
-expression_text = "float(field[\"M10\"].text) * float(field[\"X\"].text) + float(field[\"M11\"].text) * float(field[\"Y\"].text) + float(field[\"M12\"].text) * float(field[\"Z\"].text)"
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M10\"].text) * float(field[\"X\"].text) + float(field[\"M11\"].text) * float(field[\"Y\"].text) + float(field[\"M12\"].text) * float(field[\"Z\"].text) + float(field[\"M13\"].text) * float(field[\"W\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="ButtonZ2" type="Button" parent="PanelBackground/Math/Calculations/M x V"]
@@ -537,8 +756,20 @@ offset_right = 173.53296
 offset_bottom = 109.4568
 mouse_filter = 1
 text_overrun_behavior = 3
-script = ExtResource("3_5rn5l")
-expression_text = "float(field[\"M20\"].text) * float(field[\"X\"].text) + float(field[\"M21\"].text) * float(field[\"Y\"].text) + float(field[\"M22\"].text) * float(field[\"Z\"].text)"
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M20\"].text) * float(field[\"X\"].text) + float(field[\"M21\"].text) * float(field[\"Y\"].text) + float(field[\"M22\"].text) * float(field[\"Z\"].text) + float(field[\"M23\"].text) * float(field[\"W\"].text)"
+metadata/_custom_type_script = "uid://c0t512awy5gae"
+
+[node name="ButtonW3" type="Button" parent="PanelBackground/Math/Calculations/M x V"]
+layout_mode = 0
+offset_left = 88.3057
+offset_top = 115.90909
+offset_right = 173.53296
+offset_bottom = 145.45454
+mouse_filter = 1
+text_overrun_behavior = 3
+script = ExtResource("3_a8t5l")
+expression_text = "float(field[\"M30\"].text) * float(field[\"X\"].text) + float(field[\"M31\"].text) * float(field[\"Y\"].text) + float(field[\"M32\"].text) * float(field[\"Z\"].text) + float(field[\"M33\"].text) * float(field[\"W\"].text)"
 metadata/_custom_type_script = "uid://c0t512awy5gae"
 
 [node name="LabelEnd" type="Label" parent="PanelBackground/Math/Calculations/M x V"]
@@ -554,6 +785,7 @@ theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 24
 text = "|
 |
+|
 |"
 vertical_alignment = 1
 
@@ -564,10 +796,10 @@ anchor_left = 0.017
 anchor_top = 0.026
 anchor_right = 0.017
 anchor_bottom = 0.026
-offset_left = 508.131
-offset_top = 161.368
-offset_right = 632.032
-offset_bottom = 302.368
+offset_left = 589.655
+offset_top = 181.354
+offset_right = 713.55597
+offset_bottom = 322.354
 grow_horizontal = 0
 mouse_filter = 2
 theme_override_constants/separation = 34
@@ -659,12 +891,12 @@ vertical_alignment = 1
 wait_time = 4.0
 one_shot = true
 
-[node name="PanelBar" parent="." instance=ExtResource("4_5k000")]
+[node name="PanelBar" parent="." instance=ExtResource("4_o3gt1")]
 layout_mode = 0
-offset_right = 677.4419
+offset_right = 811.896
 scale = Vector2(0.9668726, 0.9668726)
-custom_icon = ExtResource("5_1asl4")
-custom_title = &"3 x 3 Matrix Transpose, Multiply by Vector"
+custom_icon = ExtResource("5_ghsb6")
+custom_title = &"4 x 4 Matrix Transpose, Multiply by Vector"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false

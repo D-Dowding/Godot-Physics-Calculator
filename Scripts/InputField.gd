@@ -27,7 +27,7 @@ func on_mouse_click(event : InputEvent, input_field : LineEdit):
 func on_field_exit():
 	## Ensure text isn't blank if user isn't typing
 	if text.replace(" ", "").is_empty():
-		text = "0"
+		text = default_string
 		
 func on_field_enter():
 	## If text is 0, make blank
