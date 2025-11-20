@@ -80,7 +80,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_tpxq1")
-debug = true
 calculator_panel_data = Dictionary[int, ExtResource("2_nt685")]({
 0: SubResource("Resource_mdr1w"),
 1: SubResource("Resource_0mgyl"),
